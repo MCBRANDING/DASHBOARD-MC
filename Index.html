@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tareas Equipo — Merlyz Castellanos</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap');
+  :root{
+    --bg:#F5EBE0; --surface:#FFFFFF; --card:#EFE1D3; --vanilla:#D5BDAF;
+    --beaver:#A37E6D; --ink:#3A2E27; --ink-soft:#7A6A5F; --alert:#B23A2E; --ok:#5C7A5A;
+  }
+  *{box-sizing:border-box;}
+  html,body,#root{height:100%;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:'Inter',sans-serif;}
+  .fraunces{font-family:'Fraunces',serif;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel" data-presets="react">
+const { useState, useEffect, useMemo } = React;
+
+const COLORS = {
+  bg:"#F5EBE0", surface:"#FFFFFF", card:"#EFE1D3", vanilla:"#D5BDAF",
+  beaver:"#A37E6D", ink:"#3A2E27", inkSoft:"#7A6A5F", alert:"#B23A2E", ok:"#5C7A5A",
+};
+
+const TASKS_ENDPOINT = "/.netlify/functions/tasks";
+const CREATE_ENDPOINT = "/.netlify/functions/create-brief";
+
+// ---- Iconos SVG inline ----
+const Icon = ({ size = 16, color = "currentColor", children }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">{children}</svg>
+);
+const Send = (p) => <Icon {...p}><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></Icon>;
+const CheckCircle2 = (p) => <Icon {...p}><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></Icon>;
+const ClipboardCopy = (p) => <Icon {...p}><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M4 16V4a2 2 0 0 1 2-2h10"/></Icon>;
+const Trash2 = (p) => <Icon {...p}><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></Icon>;
+const AlertTriangle = (p) => <Icon {...p}><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></Icon>;
+const PlusCircle = (p) => <Icon {...p}><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></Icon>;
+const Info = (p) => <Icon {...p}><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></Icon>;
+const Flame = (p) => <Icon {...p}><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></Icon>;
+const Clock = (p) => <Icon {...p}><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></Icon>;
+const RefreshCw = (p) => <Icon {...p}><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></Icon>;
+
+function fieldStyle(){ return { width:"100%", padding:"10px 12px", borderRadius:10, border:`1px solid ${COLORS.vanilla}`, background:COLORS.bg, fontSize:14, color:COLORS.ink, fontFamily:"Inter, sans-serif" }; }
+function Label({ children, required }) {
+  return <label style={{ fontSize:12.5, fontWeight:600, color:COLORS.inkSoft, display:"block", marginBottom:5 }}>{children} {required && <span style={{ color:COLORS.alert }}>*</span>}</label>;
+}
+
+// =================== TAB 1: NUEVO BRIEF ===================
+const STORAGE_KEY = "briefs-pendientes";
+const CLIENTES = ["PickleTour Venezuela","Philips Venezuela / Branvi","Full Connection","Concertación Ciudadana","Michelle Hair Studio & Spa","Merlyz Branding Estratégico","Otro"];
+const TIPOS = ["Diseño gráfico","Copywriting / Guion","Video / Reel","Estrategia / Planificación","Reporte","Administrativo","Otro"];
+const PERSONAS = ["Merlyz","Melissa","Pedro"];
+const SOLICITANTES = ["Merlyz","Melissa","Pedro","Cliente"];
+const PRIORIDADES = ["Alta","Media","Baja"];
+const EMPTY_FORM = { nombre:"", cliente:CLIENTES[0], tipo:TIPOS[0], solicitadoPor:SOLICITANTES[0], responsable:PERSONAS[0], prioridad:"Media", fechaLimite:"", horas:"", descripcion:"", recursos:"", formato:"" };
+
+function NuevoBriefForm({ onSaved }){
+  const [form, setForm] = useState(EMPTY_FORM);
+  const [pending, setPending] = useState([]);
+  const [status, setStatus] = useState("idle"); // idle | saving | success | queued | error
+  const [errorMsg, setErrorMsg] = useState("");
+  const [copyLabel, setCopyLabel] = useState("Copiar todo para Claude");
+  const [manualText, setManualText] = useState(null);
+
+  useEffect(() => {
+    try { const raw = localStorage.getItem(STORAGE_KEY); if (raw) setPending(JSON.parse(raw)); } catch {}
+  }, []);
+
+  function update(field, value){ setForm((f) => ({ ...f, [field]: value })); }
+  function isValid(){ return form.nombre.trim() && form.cliente && form.responsable && form.fechaLimite; }
+  function savePendingList(list){ setPending(list); try { localStorage.setItem(STORAGE_KEY, JSON.stringify(list)); } catch {} }
+
+  async function handleSave(){
+    if (!isValid()){
+      setStatus("error");
+      setErrorMsg("Completa al menos Nombre, Cliente, Responsable y Fecha límite.");
+      setTimeout(() => setStatus("idle"), 4000);
+      return;
+    }
+    setStatus("saving");
+    const entry = { ...form, id: Date.now().toString() };
+
+    try {
+      const controller = new AbortController();
+      const t = setTimeout(() => controller.abort(), 10000);
+      const resp = await fetch(CREATE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(entry),
+        signal: controller.signal,
+      });
+      clearTimeout(t);
+      if (!resp.ok) throw new Error("No ok");
+      setForm(EMPTY_FORM);
+      setStatus("success");
+      if (onSaved) onSaved();
+    } catch {
+      savePendingList([...pending, entry]);
+      setForm(EMPTY_FORM);
+      setStatus("queued");
+    }
+    setTimeout(() => setStatus("idle"), 3500);
+  }
+
+  function removeEntry(id){ savePendingList(pending.filter((p) => p.id !== id)); }
+
+  async function copyAllForClaude(){
+    const text = pending.map((p, i) =>
+      `${i+1}. ${p.nombre}\n   Cliente: ${p.cliente} | Tipo: ${p.tipo} | Responsable: ${p.responsable} | Solicitado por: ${p.solicitadoPor}\n   Prioridad: ${p.prioridad} | Fecha límite: ${p.fechaLimite} | Horas: ${p.horas||0}\n   Descripción: ${p.descripcion||"-"}\n   Recursos: ${p.recursos||"-"}\n   Formato de entrega: ${p.formato||"-"}`
+    ).join("\n\n");
+    const message = `Crea estas tareas en mi base "Tareas Equipo — Brief y Seguimiento" de Notion:\n\n${text}`;
+    try {
+      await navigator.clipboard.writeText(message);
+      setCopyLabel("¡Copiado!"); setManualText(null);
+      setTimeout(() => setCopyLabel("Copiar todo para Claude"), 3000);
+    } catch { setManualText(message); }
+  }
+
+  return (
+    <div style={{ maxWidth:640, margin:"0 auto", padding:"24px 20px 60px" }}>
+      <div style={{ marginBottom:22 }}>
+        <div style={{ fontSize:12, letterSpacing:1.5, textTransform:"uppercase", color:COLORS.beaver, fontWeight:600 }}>Merlyz Castellanos · Branding Estratégico</div>
+        <h1 className="fraunces" style={{ fontSize:28, fontWeight:600, margin:"4px 0 0" }}>Nuevo brief</h1>
+        <p style={{ fontSize:13, color:COLORS.inkSoft, margin:"4px 0 0" }}>Se guarda directo en Notion</p>
+      </div>
+
+      {status === "success" && (
+        <div style={{ background:"#E1EADD", border:`1px solid ${COLORS.ok}`, color:COLORS.ok, padding:"10px 14px", borderRadius:10, fontSize:13, marginBottom:16, display:"flex", gap:8, alignItems:"center" }}>
+          <CheckCircle2 size={16}/> Creado en Notion.
+        </div>
+      )}
+      {status === "queued" && (
+        <div style={{ background:"#F2E7C9", border:"1px solid #8a6d1c", color:"#6b5417", padding:"10px 14px", borderRadius:10, fontSize:13, marginBottom:16, display:"flex", gap:8, alignItems:"flex-start" }}>
+          <AlertTriangle size={16} style={{ marginTop:1, flexShrink:0 }}/>
+          <span>No se pudo conectar ahora. Se guardó localmente en "Pendientes" — cópialo y pégaselo a Claude cuando puedas.</span>
+        </div>
+      )}
+      {status === "error" && (
+        <div style={{ background:"#F3E0DC", border:`1px solid ${COLORS.alert}`, color:COLORS.alert, padding:"10px 14px", borderRadius:10, fontSize:13, marginBottom:16, display:"flex", gap:8, alignItems:"center" }}>
+          <AlertTriangle size={16}/> {errorMsg}
+        </div>
+      )}
+
+      <div style={{ background:COLORS.surface, borderRadius:18, padding:"22px 20px", boxShadow:"0 1px 3px rgba(58,46,39,0.08)", marginBottom:24 }}>
+        <div style={{ marginBottom:14 }}>
+          <Label required>Nombre de tarea</Label>
+          <input style={fieldStyle()} value={form.nombre} onChange={(e)=>update("nombre", e.target.value)} placeholder="Ej: Reel reactivación Full Connection"/>
+        </div>
+        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:12, marginBottom:14 }}>
+          <div><Label required>Cliente</Label>
+            <select style={fieldStyle()} value={form.cliente} onChange={(e)=>update("cliente", e.target.value)}>{CLIENTES.map((c)=><option key={c} value={c}>{c}</option>)}</select></div>
+          <div><Label>Tipo de tarea</Label>
+            <select style={fieldStyle()} value={form.tipo} onChange={(e)=>update("tipo", e.target.value)}>{TIPOS.map((t)=><option key={t} value={t}>{t}</option>)}</select></div>
+        </div>
+        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:12, marginBottom:14 }}>
+          <div><Label>Solicitado por</Label>
+            <select style={fieldStyle()} value={form.solicitadoPor} onChange={(e)=>update("solicitadoPor", e.target.value)}>{SOLICITANTES.map((s)=><option key={s} value={s}>{s}</option>)}</select></div>
+          <div><Label required>Responsable</Label>
+            <select style={fieldStyle()} value={form.responsable} onChange={(e)=>update("responsable", e.target.value)}>{PERSONAS.map((p)=><option key={p} value={p}>{p}</option>)}</select></div>
+        </div>
+        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:12, marginBottom:14 }}>
+          <div><Label>Prioridad</Label>
+            <select style={fieldStyle()} value={form.prioridad} onChange={(e)=>update("prioridad", e.target.value)}>{PRIORIDADES.map((p)=><option key={p} value={p}>{p}</option>)}</select></div>
+          <div><Label required>Fecha límite</Label>
+            <input type="date" style={fieldStyle()} value={form.fechaLimite} onChange={(e)=>update("fechaLimite", e.target.value)}/></div>
+          <div><Label>Horas est.</Label>
+            <input type="number" min="0" step="0.5" style={fieldStyle()} value={form.horas} onChange={(e)=>update("horas", e.target.value)} placeholder="0"/></div>
+        </div>
+        <div style={{ marginBottom:14 }}>
+          <Label>Descripción / Objetivo</Label>
+          <textarea style={{ ...fieldStyle(), minHeight:70, resize:"vertical" }} value={form.descripcion} onChange={(e)=>update("descripcion", e.target.value)} placeholder="Qué se necesita y para qué"/>
+        </div>
+        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:12, marginBottom:18 }}>
+          <div><Label>Recursos necesarios</Label>
+            <input style={fieldStyle()} value={form.recursos} onChange={(e)=>update("recursos", e.target.value)} placeholder="Assets, accesos…"/></div>
+          <div><Label>Formato de entrega</Label>
+            <input style={fieldStyle()} value={form.formato} onChange={(e)=>update("formato", e.target.value)} placeholder="PNG, PDF, Reel…"/></div>
+        </div>
+        <button type="button" onClick={handleSave} disabled={status==="saving"} style={{ width:"100%", display:"flex", alignItems:"center", justifyContent:"center", gap:8, background:COLORS.ink, color:COLORS.bg, border:"none", borderRadius:12, padding:"13px 18px", fontSize:14, fontWeight:600, cursor:"pointer", opacity: status==="saving"?0.7:1 }}>
+          {status==="saving" ? <RefreshCw size={16} style={{ animation:"spin 1s linear infinite" }}/> : <Send size={16}/>}
+          {status==="saving" ? "Guardando…" : "Guardar brief"}
+        </button>
+      </div>
+
+      {pending.length > 0 && (
+        <div style={{ background:COLORS.surface, borderRadius:18, padding:"20px 18px", boxShadow:"0 1px 3px rgba(58,46,39,0.08)" }}>
+          <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:10, flexWrap:"wrap", gap:8 }}>
+            <h2 className="fraunces" style={{ fontSize:17, fontWeight:600, margin:0, display:"flex", alignItems:"center", gap:6 }}>
+              <PlusCircle size={16} color={COLORS.beaver}/> Pendientes por subir ({pending.length})
+            </h2>
+            <button onClick={copyAllForClaude} style={{ display:"flex", alignItems:"center", gap:6, background:COLORS.beaver, color:"#fff", border:"none", borderRadius:999, padding:"8px 14px", fontSize:12.5, fontWeight:600, cursor:"pointer" }}>
+              <ClipboardCopy size={14}/> {copyLabel}
+            </button>
+          </div>
+          {manualText && (
+            <div style={{ marginBottom:14 }}>
+              <p style={{ fontSize:12, color:COLORS.alert, margin:"0 0 6px" }}>Toca el texto, se selecciona solo — cópialo y pégalo en el chat.</p>
+              <textarea readOnly value={manualText} onFocus={(e)=>e.target.select()} onClick={(e)=>e.target.select()} style={{ ...fieldStyle(), minHeight:120, fontSize:12, fontFamily:"monospace", resize:"vertical" }}/>
+            </div>
+          )}
+          {pending.map((p) => (
+            <div key={p.id} style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", padding:"10px 0", borderTop:`1px solid ${COLORS.card}` }}>
+              <div>
+                <div style={{ fontSize:13.5, fontWeight:600 }}>{p.nombre}</div>
+                <div style={{ fontSize:12, color:COLORS.inkSoft }}>{p.cliente} · {p.responsable} · vence {p.fechaLimite || "sin fecha"}</div>
+              </div>
+              <button onClick={()=>removeEntry(p.id)} style={{ background:"none", border:"none", cursor:"pointer", color:COLORS.inkSoft, padding:4 }}><Trash2 size={15}/></button>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// =================== TAB 2: DASHBOARD ===================
+const RESPONSABLES = ["Merlyz","Melissa","Pedro"];
+
+function daysUntil(dateStr){ const today = new Date(); today.setHours(0,0,0,0); const d = new Date(dateStr+"T00:00:00"); return Math.round((d-today)/86400000); }
+function bucketFor(dateStr){ const days = daysUntil(dateStr); if (days<0) return "Vencida"; if (days<=1) return "Hoy / Mañana"; if (days<=7) return "Esta semana"; return "Más adelante"; }
+const BUCKETS = ["Vencida","Hoy / Mañana","Esta semana","Más adelante"];
+function heatColor(hours){ if (hours===0) return COLORS.card; if (hours<=3) return "#E4CFBB"; if (hours<=6) return COLORS.vanilla; if (hours<=9) return COLORS.beaver; return COLORS.alert; }
+
+function Dashboard({ refreshSignal }){
+  const [tasks, setTasks] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [lastSync, setLastSync] = useState(null);
+  const [selectedCell, setSelectedCell] = useState(null);
+
+  async function load(){
+    setLoading(true); setError(null);
+    try {
+      const controller = new AbortController();
+      const t = setTimeout(() => controller.abort(), 10000);
+      const resp = await fetch(TASKS_ENDPOINT, { signal: controller.signal });
+      clearTimeout(t);
+      if (!resp.ok) throw new Error("No ok");
+      const data = await resp.json();
+      setTasks(data);
+      setLastSync(new Date());
+    } catch {
+      setError("No se pudo conectar con Notion. Mostrando lo último cargado.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => { load(); }, [refreshSignal]);
+
+  const grid = useMemo(() => {
+    const g = {};
+    RESPONSABLES.forEach((r) => { g[r] = {}; BUCKETS.forEach((b) => (g[r][b] = { hours:0, items:[] })); });
+    tasks.forEach((t) => {
+      if (!RESPONSABLES.includes(t.responsable) || !t.fechaLimite) return;
+      const b = bucketFor(t.fechaLimite);
+      g[t.responsable][b].hours += Number(t.horas)||0;
+      g[t.responsable][b].items.push(t);
+    });
+    return g;
+  }, [tasks]);
+
+  const byClient = useMemo(() => {
+    const m = {};
+    tasks.forEach((t) => { m[t.cliente] = (m[t.cliente]||0)+1; });
+    return Object.entries(m).sort((a,b)=>b[1]-a[1]);
+  }, [tasks]);
+  const maxClientCount = Math.max(1, ...byClient.map(([,c])=>c));
+
+  const urgentTasks = useMemo(() =>
+    tasks.filter((t)=> t.prioridad==="Alta" || bucketFor(t.fechaLimite)==="Vencida" || bucketFor(t.fechaLimite)==="Hoy / Mañana")
+      .sort((a,b)=>daysUntil(a.fechaLimite)-daysUntil(b.fechaLimite)), [tasks]);
+
+  return (
+    <div style={{ maxWidth:960, margin:"0 auto", padding:"24px 20px 60px" }}>
+      <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", flexWrap:"wrap", gap:12, marginBottom:20 }}>
+        <div>
+          <div style={{ fontSize:12, letterSpacing:1.5, textTransform:"uppercase", color:COLORS.beaver, fontWeight:600 }}>Merlyz Castellanos · Branding Estratégico</div>
+          <h1 className="fraunces" style={{ fontSize:30, fontWeight:600, margin:"4px 0 0" }}>Mapa de carga del equipo</h1>
+        </div>
+        <button onClick={load} disabled={loading} style={{ display:"flex", alignItems:"center", gap:8, background:COLORS.ink, color:COLORS.bg, border:"none", borderRadius:999, padding:"10px 18px", fontSize:13, fontWeight:600, cursor:loading?"default":"pointer", opacity:loading?0.6:1 }}>
+          <RefreshCw size={15} style={{ animation: loading ? "spin 1s linear infinite" : "none" }}/>
+          {loading ? "Actualizando…" : "Actualizar"}
+        </button>
+      </div>
+
+      {error && (
+        <div style={{ background:"#F3E0DC", border:`1px solid ${COLORS.alert}`, color:COLORS.alert, padding:"10px 14px", borderRadius:10, fontSize:13, marginBottom:20, display:"flex", gap:8, alignItems:"center" }}>
+          <AlertTriangle size={16}/> {error}
+        </div>
+      )}
+
+      <div style={{ background:COLORS.surface, borderRadius:18, padding:"20px 18px", boxShadow:"0 1px 3px rgba(58,46,39,0.08)", marginBottom:24 }}>
+        <h2 className="fraunces" style={{ fontSize:18, fontWeight:600, margin:"0 0 4px" }}>Carga por responsable y urgencia</h2>
+        <p style={{ fontSize:13, color:COLORS.inkSoft, margin:"0 0 16px" }}>Horas estimadas activas · toca una celda para ver las tareas</p>
+        <div style={{ overflowX:"auto" }}>
+          <div style={{ display:"grid", gridTemplateColumns:`100px repeat(${BUCKETS.length}, 1fr)`, gap:8, minWidth:560 }}>
+            <div/>
+            {BUCKETS.map((b) => <div key={b} style={{ fontSize:11, fontWeight:600, color:COLORS.inkSoft, textAlign:"center", textTransform:"uppercase", letterSpacing:0.4 }}>{b}</div>)}
+            {RESPONSABLES.map((r) => (
+              <React.Fragment key={r}>
+                <div style={{ fontSize:14, fontWeight:600, display:"flex", alignItems:"center" }}>{r}</div>
+                {BUCKETS.map((b) => {
+                  const cell = grid[r][b];
+                  const isSelected = selectedCell && selectedCell.r===r && selectedCell.b===b;
+                  return (
+                    <button key={r+b} onClick={()=>setSelectedCell(cell.items.length ? {r,b} : null)}
+                      style={{ background:heatColor(cell.hours), border:isSelected?`2px solid ${COLORS.ink}`:"2px solid transparent", borderRadius:12, minHeight:64, pa
