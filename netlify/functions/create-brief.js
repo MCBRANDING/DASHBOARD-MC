@@ -34,8 +34,9 @@ exports.handler = async function (event) {
       Origen: { select: { name: "Formulario" } },
       "Horas estimadas": { number: Number(entry.horas) || 0 },
       "Descripción / Objetivo": { rich_text: [{ text: { content: entry.descripcion || "" } }] },
-      "Recursos necesarios": { rich_text: [{ text: { content: entry.recursos || "" } }] },
+      "Recursos necesarios": entry.recursos ? { url: entry.recursos } : { url: null },
       "Formato de entrega": { rich_text: [{ text: { content: entry.formato || "" } }] },
+      "Copy de publicación": { rich_text: [{ text: { content: entry.copy || "" } }] },
     };
     if (entry.fechaLimite) {
       properties["Fecha límite"] = { date: { start: entry.fechaLimite } };
@@ -61,4 +62,3 @@ exports.handler = async function (event) {
     return { statusCode: 500, headers, body: JSON.stringify({ error: e.message }) };
   }
 };
-      
