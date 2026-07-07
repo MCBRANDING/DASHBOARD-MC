@@ -12,24 +12,35 @@ exports.handler = async function () {
   }
 
   try {
-    const resp = await fetch(`https://api.notion.com/v1/databases/${DATABASE_ID}/query`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${NOTION_TOKEN}`,
-        "Notion-Version": "2022-06-28",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        sorts: [{ property: "Fecha límite", direction: "ascending" }],
-      }),
-    });
+    let allResults = [];
+    let cursor = undefined;
+    let hasMore = true;
 
-    const data = await resp.json();
-    if (!resp.ok) {
-      return { statusCode: resp.status, headers, body: JSON.stringify({ error: data }) };
+    while (hasMore) {
+      const body = { sorts: [{ property: "Fecha límite", direction: "ascending" }], page_size: 100 };
+      if (cursor) body.start_cursor = cursor;
+
+      const resp = await fetch(`https://api.notion.com/v1/databases/${DATABASE_ID}/query`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${NOTION_TOKEN}`,
+          "Notion-Version": "2022-06-28",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      });
+
+      const data = await resp.json();
+      if (!resp.ok) {
+        return { statusCode: resp.status, headers, body: JSON.stringify({ error: data }) };
+      }
+
+      allResults = allResults.concat(data.results);
+      hasMore = data.has_more;
+      cursor = data.next_cursor;
     }
 
-    const tasks = data.results.map((page) => {
+    const tasks = allResults.map((page) => {
       const p = page.properties;
       return {
         id: page.id,
