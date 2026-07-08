@@ -1,0 +1,1964 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Tareas Equipo" />
+<meta name="color-scheme" content="light" />
+<meta name="theme-color" content="#F5EBE0" />
+<meta name="mobile-web-app-capable" content="yes" />
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAIgUlEQVR4nO3d609U1xrH8WcuikwEtBbvrdrWtlqhzcG2ShErCAgCzo0mvV/SNP0rzjl/QNPmNE37urf0hcwMtwEBpYqKWqyXiq1alUrxUhGIoDgTB6cvTmI8m3mOzNqXmbX4fV6ZLWuvFf1mO7Nm9tZWmP8MASRiT/UCIH0hDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmAhDmA5UzLrl199sfrp1Wac+dtvvvvm62/NOPND5eXnffrZJyadvKy0wqQz/x+qXTlqa2tmz56dkqn9fl9K5jWPanHkzMvZWlZq/bzLli3bWLjB+nlNpVocROT1eW02m8WT+vwpmNRsCsaxYsXjL7643soZs7KyyivKrJzRGgrGQUS+Okv/+a+prc7IyLByRmvY0u2/K3//g/feePN1/ef56MOP+/v79Z/noZxO5/c/fPfII/N1nqfn4KF//fPfRqzIMGpeOYjIX+e1ZqKS0hL9ZaQnZeOw7O/Msgqtp2wcTqdzh3uH2bMUrC9YtWqV2bOkirJxEFF1zXazXyfWWfvK12JyxHFr/JbAqOzs7LLyrYYv5r6Vq1YWrC/QHBwfHzdvRovJEUdLS1hsoKkbYgn3y1uaBZeahuSI48xvZ06f/lVg4GOPLX/55ZcMXw8RzZ8/v6R0i+bg4ODg4UOHzZguJeSIg4gC9QGxgSZtiO1w186aNUtzMBgIxc2YLEWkiePA/oPXrl0TGPjCC88/+dSTxi4mIyOjprZac3BsbKyjvdPYiVJLmjji8Xgw0CA21vAP08sryrKzszUHW5rD0WjU2IlSS5o4iGhX267bt28LDHx1y+YFCxYYtQybzeb1eTQHY7FYY0OjUVOkCZniuHPnTmu4TWCg0+l0ewzbENuwccPy5cs1B7v2dI2MjBo1RZqQKQ4iCgUbJicnBQZWVxu2IZZw46t+Z9CQk6cVyeIYGhrq7t4vMHBu1tyKbQZ8DXP106vz8vM0B3/++Zg1nwBbTLI4iCiwU/A9rdfn1r8hxlw2BJeU5uSL4+zZc319fQID9X/NMzc3t3hzsebgH39cOtp7VM9p05Z8cZCOf+B1vqf1+jwOh0NzUHh3Lv1JGUfPwZ4rV64KDMzLzxO+X8blyqzaXqk5ODo6umd3l9gJ05+UccTj8VAwJDZW+OJRWVXpcrk0B5sam+/evSt2wvQnZRxEtKut/dYtkc/xN79anJv7aLKj7Ha7x6vd+IpGo81NLQJrkIWscUQikXC4VWCgw+Fwe9zJjiou3rRo0ULNwd2de27evCmwBlnIGgcRNYYaY7GYwMCq7ZWZmZlJDZn60W48Hg8EFNz4epDEcQwN3ejeJ7QhNnfutsokNsTWrVv37LPaGzh+OtL758CfArNLROI4iKhe9G2kx5vEhpj/tYQbX/ViU0tE7jh+P/f7qV9OCQxcsmTJK0WF0/nJpUuXFBZu1By8cP7CiRMnBeaVi9xxkI6LxzTf0ya8Q3qnovvlGtLHcajn8OXLlwUGPrfuuamvJDSysrLKK8o1B2/cuLFv7z6BGaUjfRx6viH20K+XVtdUz5kzR3OwQfRdknSkj4OIOto7xG5s2bSpaOFC7e7FfU6nc4e7RnNQeH9FRirEEYlExG5scTgcHp+b+92Ski1Tv1y4q61dLEQZqRAH6bjUV1VVulyJN8QSbnwFA4Kf6chIkTiGh4fFXiS6XK7KKu1nrURUUPCPJ57Q3iF98EDP1asinwZLSpE4SMeXPDwet92u/XNI+FpV+G2zpNSJ4/z58ydP/iIwcNHiRUWbih48snLlivVT7pA+89uZ032nxdcnIXXiIB3f5fT7/+cBLD6/b+rG10y7bJBicRw5fGRwcFBg4Jq1a9auXfPfX8+bN690a4nmB/766/r+7gN61ycbpeLQ827i/ouMhHdIh4Khe/fu6VqchJSKg4g62jvHxsYEBhYVvbJ48eKEd0hPTEy0tYrcaSc71eKIRqNhoQ0xu93u9bnLyrfm5ORofqs13DYxcceI1UlGtTiIqKGhSWxDrGLbtro6v+bg5ORkKNhgwLIkpGAcI8MjP3btFRjocmUuXbZUc7C7e//169cNWJaEFIyDDH3bKXz3pQLUjOPihYsnjp/Qf55Tp/rOnj2n/zySUjMOMujiMZMvG6RwHPq/HX7l8pWenkNGrUdGysah/+P1QCAUj6v0cMCkKRsHEXV27ha+I218fLyjvcPY9UhH5Tii0ajw84RbmsORSMTY9UhH5TiIqKlRZEMsFos1NjSZsR65KB7HyMho156kn5/xY9fe4eFhM9YjF8XjIKFviM3Ar24kpH4c/f39x44dn/7PHz92/OKFi+atRyLqx0FJ7mWp+mhAATMijt7eo5cuDUznJwcGBnoVfTSggBkRRzweD07vQSuB+uAM3/h6kDPVC7BIa7hN7LnpM9mMuHKAGMQBLMQBLMQBLFth/kOebmOGL7/6Qvgx0xotLeH/fPa5Iaeavnfeffvtd96ycsayUgP+P5Bk4coBLMQBLMQBLMQBLMQBrNS8WwEp4MoBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBrL8B8b8wl5EKD1IAAAAASUVORK5CYII=" />
+<title>Tareas Equipo — Merlyz Castellanos</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap');
+  :root{
+    color-scheme: light only;
+    --bg:#F5EBE0; --surface:#FFFFFF; --card:#EFE1D3; --vanilla:#D5BDAF;
+    --beaver:#A37E6D; --ink:#3A2E27; --ink-soft:#7A6A5F; --alert:#B23A2E; --ok:#5C7A5A;
+  }
+  html{ color-scheme: light only; background:#F5EBE0; }
+  @media (prefers-color-scheme: dark){
+    html, body{ background:#F5EBE0 !important; color:#3A2E27 !important; }
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+  body{
+    margin:0; background:var(--bg); color:var(--ink); font-family:'Inter',sans-serif;
+    padding-top:env(safe-area-inset-top); padding-bottom:env(safe-area-inset-bottom);
+    padding-left:env(safe-area-inset-left); padding-right:env(safe-area-inset-right);
+  }
+  .fraunces{font-family:'Fraunces',serif;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .spin{animation:spin 1s linear infinite; display:inline-flex;}
+  input,select,textarea{
+    width:100%; padding:10px 12px; border-radius:10px; border:1px solid var(--vanilla);
+    background:var(--bg); font-size:16px; color:var(--ink); font-family:'Inter',sans-serif;
+    -webkit-appearance:none; appearance:none;
+  }
+  input[type="checkbox"], input[type="radio"]{
+    width:auto; padding:0; -webkit-appearance:auto; appearance:auto;
+  }
+  label{ font-size:12.5px; font-weight:600; color:var(--ink-soft); display:block; margin-bottom:5px; }
+  label .req{ color:var(--alert); }
+  button{ font-family:'Inter',sans-serif; cursor:pointer; touch-action:manipulation; -webkit-appearance:none; appearance:none; }
+  .card{ background:var(--surface); border-radius:18px; padding:20px 18px; box-shadow:0 1px 3px rgba(58,46,39,0.08); margin-bottom:20px; }
+  .field{ margin-bottom:14px; }
+  .row2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px; }
+  .row3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-bottom:14px; }
+  .banner{ padding:10px 14px; border-radius:10px; font-size:13px; margin-bottom:16px; display:flex; gap:8px; align-items:flex-start; }
+  .banner.ok{ background:#E1EADD; border:1px solid var(--ok); color:var(--ok); }
+  .banner.warn{ background:#F2E7C9; border:1px solid #8a6d1c; color:#6b5417; }
+  .banner.error{ background:#F3E0DC; border:1px solid var(--alert); color:var(--alert); }
+  .heat-cell{ border-radius:12px; min-height:64px; padding:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; border:2px solid transparent; transition:transform .15s ease; }
+  .heat-cell:hover{ transform:translateY(-2px); }
+  .heat-cell.selected{ border-color:var(--ink); }
+  .month-cell{ aspect-ratio:1; border-radius:4px; display:flex; align-items:center; justify-content:center; font-size:10px; color:var(--ink-soft); cursor:default; padding:0; font-family:inherit; }
+  .month-cell.empty{ background:transparent; }
+  select{
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237A6A5F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat:no-repeat; background-position:right 10px center; padding-right:34px;
+  }
+  .scroll-x{ -webkit-overflow-scrolling:touch; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>
+// ==================== CONFIG ====================
+const TASKS_ENDPOINT = "/.netlify/functions/tasks";
+const CREATE_ENDPOINT = "/.netlify/functions/create-brief";
+const UPDATE_ENDPOINT = "/.netlify/functions/update-task";
+const DELETE_ENDPOINT = "/.netlify/functions/delete-task";
+const STORAGE_KEY = "briefs-pendientes";
+const IDENTITY_KEY = "device-identity";
+const CACHE_MS = 90000;
+
+const ESTADOS_EQUIPO = ["Programada", "Sin empezar", "En curso", "Listo"];
+
+function estadoEquipoToFields(v){
+  if (v === "Programada") return { visibilidad: "Programada", estado: "Sin empezar" };
+  if (v === "En curso") return { visibilidad: "Activa", estado: "En curso" };
+  if (v === "Listo") return { visibilidad: "Activa", estado: "Listo" };
+  return { visibilidad: "Activa", estado: "Sin empezar" };
+}
+function fieldsToEstadoEquipo(t){
+  if (t.estado === "Listo") return "Listo";
+  if (t.visibilidad === "Programada") return "Programada";
+  return t.estado === "En curso" ? "En curso" : "Sin empezar";
+}
+
+const CLIENTES = ["PickleTour Venezuela","Philips Venezuela / Branvi","Full Connection","Concertación Ciudadana","Michelle Hair Studio & Spa","Merlyz Branding Estratégico","Otro"];
+const FORMATOS = ["PNG","JPG","PDF","Reel / Video","Carrusel","Historia","GIF","Otro"];
+const TIPOS = ["Diseño gráfico","Copywriting / Guion","Video / Reel","Estrategia / Planificación","Reporte","Administrativo","Otro"];
+const PERSONAS = ["Merlyz","Melissa","Pedro"];
+const SOLICITANTES = ["Merlyz","Melissa","Pedro","Cliente"];
+const PRIORIDADES = ["Alta","Media","Baja"];
+const RESPONSABLES = ["Merlyz","Melissa","Pedro"];
+const BUCKETS = ["Vencida","Hoy / Mañana","Esta semana","Más adelante"];
+
+// ==================== ICONS (SVG strings) ====================
+const ICONS = {
+  send: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>`,
+  check: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`,
+  clipboard: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M4 16V4a2 2 0 0 1 2-2h10"/></svg>`,
+  trash: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>`,
+  alert: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`,
+  plusCircle: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--beaver)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>`,
+  flame: `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--alert)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>`,
+  clock: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+  refresh: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>`,
+};
+
+// ==================== STATE ====================
+function emptyFormObject(){
+  return { nombre:"", cliente:CLIENTES[0], tipo:TIPOS[0], solicitadoPor:SOLICITANTES[0], responsable:PERSONAS[0], prioridad:"Media", estadoEquipo:"Sin empezar", fechaLimite:"", horas:"", descripcion:"", recursos:"", formato:[], copy:"" };
+}
+
+let deviceIdentity = null;
+try { deviceIdentity = localStorage.getItem(IDENTITY_KEY); } catch {}
+
+const state = {
+  tab: "brief",
+  form: emptyFormObject(),
+  formStatus: "idle", formError: "",
+  editingId: null,
+  pending: [],
+  copyLabel: "Copiar todo para Claude",
+  manualText: null,
+  tasks: [], dashLoading: true, dashError: null, lastSync: null,
+  selectedCell: null,
+  selectedMonthDay: null,
+  filterCliente: "Todos", filterResponsable: "Todos", filterPrioridad: "Todos", filterOnlyWithDate: false, filterSearch: "",
+  showProgramadas: false,
+  lastFetchAt: null,
+  activeGroupCollapse: { "Vencida": false, "Hoy / Mañana": false, "Esta semana": false, "Más adelante": true },
+  fin: { cobranzas: [], gastos: [] },
+  finLoading: false, finError: null, finLastFetchAt: null,
+  finSubTab: "cobranzas", finShowForm: false, finPagandoId: null,
+  finPlanEditId: null, finPlanDraft: [],
+  showImportPanel: false,
+  importRawText: "",
+  importPreview: [],
+  importWarning: "",
+};
+
+try { const raw = localStorage.getItem(STORAGE_KEY); if (raw) state.pending = JSON.parse(raw); } catch {}
+
+function savePending(list){ state.pending = list; try { localStorage.setItem(STORAGE_KEY, JSON.stringify(list)); } catch {} }
+
+function esc(str){
+  return String(str ?? "").replace(/[&<>"']/g, (c) => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+}
+
+// ==================== DATE HELPERS ====================
+function daysUntil(dateStr){
+  if (!dateStr) return 999;
+  const today = new Date(); today.setHours(0,0,0,0);
+  const d = new Date(dateStr + "T00:00:00");
+  return Math.round((d - today) / 86400000);
+}
+function bucketFor(dateStr){
+  const days = daysUntil(dateStr);
+  if (days < 0) return "Vencida";
+  if (days <= 1) return "Hoy / Mañana";
+  if (days <= 7) return "Esta semana";
+  return "Más adelante";
+}
+function heatColor(hours){
+  if (hours === 0) return "var(--card)";
+  if (hours <= 3) return "#E4CFBB";
+  if (hours <= 6) return "var(--vanilla)";
+  if (hours <= 9) return "var(--beaver)";
+  return "var(--alert)";
+}
+
+// ==================== FILTROS (Cliente / Responsable) ====================
+function passesFilter(t){
+  if (state.filterCliente !== "Todos" && t.cliente !== state.filterCliente) return false;
+  if (state.filterResponsable !== "Todos" && t.responsable !== state.filterResponsable) return false;
+  if (state.filterPrioridad !== "Todos" && t.prioridad !== state.filterPrioridad) return false;
+  if (state.filterSearch){
+    const q = state.filterSearch.toLowerCase();
+    const haystack = `${t.nombre} ${t.cliente} ${t.descripcion}`.toLowerCase();
+    if (!haystack.includes(q)) return false;
+  }
+  return true;
+}
+function filteredActiveTasks(){
+  return state.tasks.filter((t) => t.estado !== "Listo" && t.visibilidad !== "Programada" && passesFilter(t) && (!state.filterOnlyWithDate || !!t.fechaLimite));
+}
+function filteredProgramadasTasks(){
+  return state.tasks.filter((t) => t.estado !== "Listo" && t.visibilidad === "Programada" && passesFilter(t));
+}
+function filteredCompletedTasks(){
+  return state.tasks.filter((t) => t.estado === "Listo" && passesFilter(t));
+}
+function clientesEnUso(){
+  const set = new Set(state.tasks.map((t) => t.cliente).filter(Boolean));
+  return ["Todos", ...CLIENTES.filter((c) => set.has(c))];
+}
+function renderFilterBar(){
+  const clientesOpts = clientesEnUso();
+  const responsablesOpts = ["Todos", ...PERSONAS];
+  const prioridadesOpts = ["Todos", ...PRIORIDADES];
+  return `
+    <div class="card">
+      <div class="field"><label>Buscar por nombre, cliente o descripción</label>
+        <input id="f-filter-search" value="${esc(state.filterSearch)}" placeholder="Ej: reel, Full Connection…"/></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <div><label>Filtrar por cliente</label>
+          <select id="f-filter-cliente">${clientesOpts.map((c) => `<option value="${esc(c)}" ${c===state.filterCliente?"selected":""}>${esc(c)}</option>`).join("")}</select></div>
+        <div><label>Filtrar por responsable</label>
+          <select id="f-filter-responsable">${responsablesOpts.map((r) => `<option value="${esc(r)}" ${r===state.filterResponsable?"selected":""}>${esc(r)}</option>`).join("")}</select></div>
+        <div><label>Filtrar por prioridad</label>
+          <select id="f-filter-prioridad">${prioridadesOpts.map((p) => `<option value="${esc(p)}" ${p===state.filterPrioridad?"selected":""}>${esc(p)}</option>`).join("")}</select></div>
+      </div>
+    </div>`;
+}
+
+// ==================== MONTHLY HEATMAP (Rendimiento Mensual) ====================
+// NOTA: el backend (tasks.js) solo devuelve tareas activas (Estado != "Listo"),
+// y el único campo de fecha disponible por ahora es "fechaLimite". Este heatmap
+// usa fechaLimite como proxy de actividad diaria. Para un heatmap real de
+// "completadas por día" haría falta: (1) agregar una propiedad de fecha de
+// cierre en Notion, y (2) que tasks.js también traiga las tareas en "Listo".
+
+function groupTasksByDayForPerson(persona){
+  const map = {};
+  state.tasks.forEach((t) => {
+    if (t.responsable !== persona || !t.fechaLimite || t.estado === "Listo") return;
+    if (state.filterCliente !== "Todos" && t.cliente !== state.filterCliente) return;
+    if (!map[t.fechaLimite]) map[t.fechaLimite] = [];
+    map[t.fechaLimite].push(t);
+  });
+  return map;
+}
+
+function monthHeatColor(count){
+  if (!count) return "var(--card)";
+  if (count === 1) return "#D2E2CD";
+  if (count <= 3) return "#99B896";
+  return "var(--ok)";
+}
+
+// month es 0-indexado (convención de Date: 0 = enero ... 11 = diciembre)
+function renderMonthlyHeatmap(persona, year, month){
+  const dayTasks = groupTasksByDayForPerson(persona);
+  const firstDay = new Date(year, month, 1);
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  // getDay(): 0=Domingo..6=Sábado. Remapeamos para que la semana inicie en Lunes.
+  const jsDay = firstDay.getDay();
+  const offset = (jsDay + 6) % 7;
+
+  const dowLabels = ["L","M","X","J","V","S","D"];
+  const headerHtml = dowLabels.map((d) =>
+    `<div style="font-size:10px; font-weight:600; color:var(--ink-soft); text-align:center;">${d}</div>`
+  ).join("");
+
+  let cells = "";
+  for (let i = 0; i < offset; i++){
+    cells += `<div class="month-cell empty"></div>`;
+  }
+  for (let day = 1; day <= daysInMonth; day++){
+    const mm = String(month + 1).padStart(2, "0");
+    const dd = String(day).padStart(2, "0");
+    const dateStr = `${year}-${mm}-${dd}`;
+    const items = dayTasks[dateStr] || [];
+    const count = items.length;
+    const isSel = state.selectedMonthDay && state.selectedMonthDay.persona === persona && state.selectedMonthDay.date === dateStr;
+    cells += `<button class="month-cell" data-month-persona="${esc(persona)}" data-month-date="${esc(dateStr)}" style="background:${monthHeatColor(count)}; border:${isSel?"2px solid var(--ink)":"2px solid transparent"}; cursor:${count?"pointer":"default"};" title="${dateStr}: ${count} tarea${count===1?"":"s"}">${day}</button>`;
+  }
+
+  let detailHtml = "";
+  if (state.selectedMonthDay && state.selectedMonthDay.persona === persona){
+    const items = dayTasks[state.selectedMonthDay.date] || [];
+    if (items.length){
+      detailHtml = `
+        <div style="margin-top:10px; background:var(--card); border-radius:12px; padding:12px;">
+          <div style="font-size:12px; font-weight:700; color:var(--beaver); margin-bottom:6px;">${esc(state.selectedMonthDay.date)}</div>
+          ${items.map((t,i) => `<div style="font-size:12.5px; padding:3px 0; ${i>0?"border-top:1px solid rgba(58,46,39,0.1);":""}">${esc(t.nombre)} <span style="color:var(--ink-soft);">· ${esc(t.cliente)}</span></div>`).join("")}
+        </div>`;
+    }
+  }
+
+  return `
+    <div style="margin-bottom:18px;">
+      <div style="font-size:13px; font-weight:600; margin-bottom:8px;">${esc(persona)}</div>
+      <div style="display:grid; grid-template-columns:repeat(7, 1fr); gap:4px;">
+        ${headerHtml}
+        ${cells}
+      </div>
+      ${detailHtml}
+    </div>`;
+}
+
+// ==================== RENDER: TABS ====================
+// ==================== IMPORTADOR DE PLANIFICACIONES (pegar tabla) ====================
+function normalizeHeader(s){
+  return (s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+}
+
+function detectColumn(h){
+  if (h.includes("titulo") || h.includes("concepto") || h.includes("contenido")) return "nombre";
+  if (h.includes("copy") || h.includes("caption")) return "copy";
+  if (h === "dia" || h.includes("dia")) return "dia";
+  if (h.includes("formato")) return "formato";
+  if (h.includes("cta")) return "cta";
+  if (h.includes("hashtag")) return "hashtags";
+  if (h.includes("pilar")) return "pilar";
+  if (h.includes("semana")) return "semana";
+  if (h.includes("hora")) return "hora";
+  if (h.includes("sticker")) return "sticker";
+  return null;
+}
+
+function extractDayNumber(diaStr){
+  const m = (diaStr || "").match(/(\d{1,2})\s*$/);
+  return m ? parseInt(m[1], 10) : null;
+}
+
+function buildDateFromMonthSelector(dayNum, monthValue){
+  if (!dayNum || !monthValue) return "";
+  const [y, m] = monthValue.split("-");
+  return `${y}-${m}-${String(dayNum).padStart(2, "0")}`;
+}
+
+const WEEKDAY_INDEX = { lunes:0, martes:1, miercoles:2, jueves:3, viernes:4, sabado:5, domingo:6 };
+
+function extractWeekdayIndex(diaStr){
+  const norm = normalizeHeader(diaStr).replace(/[0-9.]/g, "").trim();
+  return WEEKDAY_INDEX[norm] !== undefined ? WEEKDAY_INDEX[norm] : null;
+}
+
+function extractSemanaNumber(semanaStr){
+  const m = (semanaStr || "").match(/(\d+)/);
+  return m ? parseInt(m[1], 10) : null;
+}
+
+function toISODateString(d){
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
+// Encuentra el primer lunes del mes (si el mes empieza en lunes, es el día 1)
+function firstMondayOfMonth(year, monthIndex0){
+  const d = new Date(year, monthIndex0, 1);
+  const jsDay = d.getDay(); // 0=Domingo..6=Sábado
+  const diff = (8 - jsDay) % 7;
+  d.setDate(1 + diff);
+  return d;
+}
+
+// "Semana 2" + "Miércoles" -> fecha exacta, asumiendo semanas de Lunes a Domingo
+// empezando desde el primer lunes del mes.
+function dateFromSemanaWeekday(year, monthIndex0, semanaNum, weekdayIndex){
+  const monday = firstMondayOfMonth(year, monthIndex0);
+  const d = new Date(monday);
+  d.setDate(monday.getDate() + 7 * (semanaNum - 1) + weekdayIndex);
+  return toISODateString(d);
+}
+
+function guessFormatoTags(text){
+  const t = (text || "").toLowerCase();
+  const tags = [];
+  if (t.includes("reel") || t.includes("video")) tags.push("Reel / Video");
+  if (t.includes("carrusel")) tags.push("Carrusel");
+  if (t.includes("historia") || t.includes("story")) tags.push("Historia");
+  if (t.includes("gif")) tags.push("GIF");
+  if (t.includes("png")) tags.push("PNG");
+  if (t.includes("jpg") || t.includes("jpeg")) tags.push("JPG");
+  if (t.includes("pdf")) tags.push("PDF");
+  if (tags.length === 0) tags.push("Otro");
+  return tags;
+}
+
+function buildDescripcionFromRow(row){
+  const parts = [];
+  if (row.pilar) parts.push("Pilar: " + row.pilar);
+  if (row.semana) parts.push("Semana: " + row.semana);
+  if (row.hora) parts.push("Hora sugerida: " + row.hora);
+  if (row.formato) parts.push("Formato/specs original: " + row.formato);
+  if (row.sticker) parts.push("Sticker/interacción: " + row.sticker);
+  if (row.cta) parts.push("CTA: " + row.cta);
+  if (row.hashtags) parts.push("Hashtags: " + row.hashtags);
+  return parts.join("\n");
+}
+
+function parseImportText(){
+  const raw = document.getElementById("import-textarea").value;
+  state.importRawText = raw;
+  const lines = raw.split(/\r?\n/).filter((l) => l.trim() !== "");
+  if (lines.length < 2){
+    state.importPreview = [];
+    state.importWarning = "Pega al menos una fila de encabezado y una fila de datos.";
+    render();
+    return;
+  }
+
+  const headerCells = lines[0].split("\t").map(normalizeHeader);
+  const colMap = headerCells.map(detectColumn);
+
+  const monthValue = document.getElementById("import-month").value;
+  const cliente = document.getElementById("import-cliente").value;
+  const responsable = document.getElementById("import-responsable").value;
+  const prioridad = "Media"; // ya no se elige por lote — se ajusta luego, tarea por tarea, en la lista
+
+  const rows = [];
+  for (let i = 1; i < lines.length; i++){
+    const cells = lines[i].split("\t");
+    if (cells.every((c) => !c.trim())) continue;
+    const row = {};
+    colMap.forEach((field, idx) => { if (field) row[field] = (cells[idx] || "").trim(); });
+    if (!row.nombre) continue;
+
+    const dayNum = extractDayNumber(row.dia);
+    let fechaLimite = buildDateFromMonthSelector(dayNum, monthValue);
+    if (!fechaLimite && monthValue){
+      const semanaNum = extractSemanaNumber(row.semana);
+      const weekdayIdx = extractWeekdayIndex(row.dia);
+      if (semanaNum && weekdayIdx !== null){
+        const [y, m] = monthValue.split("-").map(Number);
+        fechaLimite = dateFromSemanaWeekday(y, m - 1, semanaNum, weekdayIdx);
+      }
+    }
+
+    const nombreNorm = normalizeHeader(row.nombre);
+    const isDuplicate = state.tasks.some((existing) =>
+      normalizeHeader(existing.nombre) === nombreNorm &&
+      existing.fechaLimite === fechaLimite &&
+      existing.cliente === cliente
+    );
+
+    rows.push({
+      nombre: row.nombre,
+      fechaLimite,
+      copy: row.copy || "",
+      descripcion: buildDescripcionFromRow(row),
+      formato: guessFormatoTags((row.formato || "") + " " + row.nombre),
+      cliente, responsable, prioridad,
+      tipo: TIPOS[0],
+      solicitadoPor: responsable,
+      recursos: "",
+      isDuplicate,
+    });
+  }
+
+  state.importPreview = rows;
+  state.importWarning = rows.length === 0 ? "No se detectaron filas válidas. Revisa que la primera línea pegada sea el encabezado de columnas (Titulo, Copy, Dia, etc.)." : "";
+  render();
+}
+
+function renderImportPreview(){
+  if (!state.importPreview.length) return "";
+  return `
+    <div style="margin-top:16px;">
+      <div style="font-size:13px; font-weight:600; margin-bottom:8px;">Vista previa (${state.importPreview.length} tareas detectadas)</div>
+      ${state.importPreview.map((r, i) => `
+        <div style="display:flex; gap:8px; align-items:flex-start; padding:8px 0; ${i>0?"border-top:1px solid var(--card);":""} ${r.isDuplicate?"background:#F2E7C9;":""}">
+          <input type="checkbox" class="import-row-chk" data-idx="${i}" ${r.isDuplicate?"":"checked"} style="margin-top:14px; width:16px; height:16px; accent-color:var(--beaver); flex-shrink:0;"/>
+          <div style="flex:1; min-width:0;">
+            <input class="import-row-nombre" data-idx="${i}" value="${esc(r.nombre)}" style="margin-bottom:4px; font-size:13px; padding:6px 8px;"/>
+            <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+              <input type="date" class="import-row-fecha" data-idx="${i}" value="${esc(r.fechaLimite)}" style="width:auto; font-size:12px; padding:5px 8px;"/>
+              ${!r.fechaLimite ? `<span style="color:var(--alert); font-size:11px;">sin fecha, complétala</span>` : ""}
+              ${r.isDuplicate ? `<span style="color:#8a6d1c; font-size:11px; font-weight:600;">⚠ ya existe una tarea igual — destildada</span>` : ""}
+            </div>
+          </div>
+        </div>
+      `).join("")}
+    </div>
+    <button id="btn-crear-importadas" type="button" style="width:100%; margin-top:14px; display:flex; align-items:center; justify-content:center; gap:8px; background:var(--ok); color:#fff; border:none; border-radius:12px; padding:12px 18px; font-size:14px; font-weight:600;">
+      ${ICONS.check} Crear ${state.importPreview.filter((r) => !r.isDuplicate).length} tareas seleccionadas
+    </button>
+    <div id="import-status-text" style="font-size:12.5px; color:var(--ink-soft); margin-top:8px; text-align:center;"></div>
+  `;
+}
+
+function renderImportPanel(){
+  return `
+    <div class="card" style="${state.showImportPanel ? "" : "background:var(--beaver); border:2px dashed var(--ink);"}">
+      <button id="btn-toggle-import" type="button" style="background:none; border:none; padding:0; font-size:15px; font-weight:700; color:${state.showImportPanel?"var(--ink)":"#fff"}; display:flex; align-items:center; justify-content:space-between; width:100%; text-align:left;">
+        <span>📋 ${state.showImportPanel ? "Importar planificación" : "¿Vienes de una planificación completa? Impórtala aquí"}</span><span>${state.showImportPanel ? "▲" : "▼"}</span>
+      </button>
+      ${state.showImportPanel ? `
+        <div style="margin-top:14px;">
+          <p style="font-size:12.5px; color:var(--ink-soft); margin:0 0 12px;">
+            Copia las filas de tu planificación desde Google Sheets o Excel (incluyendo la fila de encabezados: Título/Concepto, Copy, Día, Formato, etc.) y pégalas abajo. Funciona mejor con hojas tipo "Publicaciones Feed" o "Historias Diarias" que tienen una fila por publicación.
+          </p>
+          <div class="row2">
+            <div><label>Cliente para todo el lote</label><select id="import-cliente">${selectOptions(CLIENTES, CLIENTES[0])}</select></div>
+            <div><label>Mes de referencia</label><input id="import-month" type="month" value="${new Date().toISOString().slice(0,7)}"/></div>
+          </div>
+          <div class="field">
+            <label>Responsable (todo el lote)</label><select id="import-responsable">${selectOptions(PERSONAS, PERSONAS[0])}</select>
+          </div>
+          <div class="field">
+            <label>Pega aquí la tabla</label>
+            <textarea id="import-textarea" style="min-height:140px; font-family:monospace; font-size:11.5px;" placeholder="Pega aquí, incluyendo la fila de encabezados">${esc(state.importRawText)}</textarea>
+          </div>
+          ${state.importWarning ? `<div class="banner warn">${ICONS.alert} ${esc(state.importWarning)}</div>` : ""}
+          <button id="btn-analizar-import" type="button" style="width:100%; background:var(--beaver); color:#fff; border:none; border-radius:12px; padding:12px; font-size:14px; font-weight:600;">Analizar tabla</button>
+          ${renderImportPreview()}
+        </div>
+      ` : ""}
+    </div>`;
+}
+
+async function handleCreateImported(){
+  const rows = [];
+  document.querySelectorAll(".import-row-chk").forEach((chk) => {
+    if (!chk.checked) return;
+    const idx = chk.getAttribute("data-idx");
+    const base = state.importPreview[idx];
+    const nombreInput = document.querySelector(`.import-row-nombre[data-idx="${idx}"]`);
+    const fechaInput = document.querySelector(`.import-row-fecha[data-idx="${idx}"]`);
+    rows.push({
+      ...base,
+      nombre: nombreInput ? nombreInput.value : base.nombre,
+      fechaLimite: fechaInput ? fechaInput.value : base.fechaLimite,
+      formato: base.formato.join(", "),
+    });
+  });
+  if (rows.length === 0) return;
+
+  const statusEl = document.getElementById("import-status-text");
+  let ok = 0, fail = 0;
+
+  for (let i = 0; i < rows.length; i++){
+    if (statusEl) statusEl.textContent = `Creando ${i+1}/${rows.length}… (${ok} ok, ${fail} fallidas)`;
+    const entry = { ...rows[i], id: Date.now().toString() + i };
+    entry.visibilidad = (!entry.fechaLimite || daysUntil(entry.fechaLimite) <= 3) ? "Activa" : "Programada";
+    try {
+      const controller = new AbortController();
+      const t = setTimeout(() => controller.abort(), 10000);
+      const resp = await fetch(CREATE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(entry),
+        signal: controller.signal,
+      });
+      clearTimeout(t);
+      if (!resp.ok) throw new Error("no-ok");
+      ok++;
+    } catch {
+      fail++;
+      savePending([...state.pending, entry]);
+    }
+  }
+
+  state.importPreview = [];
+  state.importWarning = fail > 0 ? `Listo: ${ok} creadas, ${fail} fallidas (quedaron en Pendientes por subir, más abajo).` : `Listo: ${ok} tareas creadas en Notion.`;
+  render();
+  loadTasks(true);
+}
+
+function renderTabs(){
+  const tabDef = [
+    ["brief", "📝 Brief"],
+    ["dashboard", "🔥 Dashboard"],
+    ["completadas", "✅ Listas"],
+    ["finanzas", "💰 Cobranzas"],
+  ];
+  return `
+    <div style="max-width:640px; margin:0 auto; padding:16px 20px 0;">
+      <div style="display:flex; gap:6px; background:var(--card); border-radius:999px; padding:4px;">
+        ${tabDef.map(([key,label]) => `<button data-tab="${key}" style="flex:1; padding:12px 0; font-size:12.5px; font-weight:600; border:none; border-radius:999px; background:${state.tab===key?"var(--ink)":"transparent"}; color:${state.tab===key?"var(--bg)":"var(--ink-soft)"};">${label}</button>`).join("")}
+      </div>
+    </div>`;
+}
+
+// ==================== RENDER: BRIEF FORM ====================
+function selectOptions(list, selected){
+  return list.map((o) => `<option value="${esc(o)}" ${o===selected?"selected":""}>${esc(o)}</option>`).join("");
+}
+
+function renderBrief(){
+  const f = state.form;
+  let banner = "";
+  if (state.formStatus === "success") banner = `<div class="banner ok">${ICONS.check} Creado en Notion.</div>`;
+  if (state.formStatus === "queued") banner = `<div class="banner warn">${ICONS.alert} No se pudo conectar ahora. Se guardó localmente en "Pendientes" — cópialo y pégaselo a Claude cuando puedas.</div>`;
+  if (state.formStatus === "error") banner = `<div class="banner error">${ICONS.alert} ${esc(state.formError)}</div>`;
+
+  const pendingHtml = state.pending.length === 0 ? "" : `
+    <div class="card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap:wrap; gap:8px;">
+        <h2 class="fraunces" style="font-size:17px; font-weight:600; margin:0; display:flex; align-items:center; gap:6px;">${ICONS.plusCircle} Pendientes por subir (${state.pending.length})</h2>
+        <button id="btn-copy-pending" style="display:flex; align-items:center; gap:6px; background:var(--beaver); color:#fff; border:none; border-radius:999px; padding:8px 14px; font-size:12.5px; font-weight:600;">${ICONS.clipboard} ${esc(state.copyLabel)}</button>
+      </div>
+      ${state.manualText ? `
+        <p style="font-size:12px; color:var(--alert); margin:0 0 6px;">Toca el texto, se selecciona solo — cópialo y pégalo en el chat.</p>
+        <textarea id="manual-copy-text" readonly style="min-height:120px; font-size:12px; font-family:monospace; margin-bottom:14px;">${esc(state.manualText)}</textarea>
+      ` : ""}
+      ${state.pending.map((p) => `
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; padding:10px 0; border-top:1px solid var(--card);">
+          <div>
+            <div style="font-size:13.5px; font-weight:600;">${esc(p.nombre)}</div>
+            <div style="font-size:12px; color:var(--ink-soft);">${esc(p.cliente)} · ${esc(p.responsable)} · vence ${esc(p.fechaLimite||"sin fecha")}</div>
+          </div>
+          <button data-remove-id="${esc(p.id)}" style="background:none; border:none; color:var(--ink-soft); padding:4px;">${ICONS.trash}</button>
+        </div>
+      `).join("")}
+    </div>`;
+
+  return `
+    <div style="max-width:640px; margin:0 auto; padding:24px 20px 60px;">
+      <div style="margin-bottom:22px; display:flex; justify-content:space-between; align-items:flex-start; gap:12px;">
+        <div>
+          <div style="font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--beaver); font-weight:600;">Merlyz Castellanos · Branding Estratégico</div>
+          <h1 class="fraunces" style="font-size:28px; font-weight:600; margin:4px 0 0;">${state.editingId ? "Editar brief" : "Nuevo brief"}</h1>
+          <p style="font-size:13px; color:var(--ink-soft); margin:4px 0 0;">${state.editingId ? "Estás editando una tarea existente" : "Se guarda directo en Notion"}</p>
+        </div>
+        ${state.editingId ? `<button id="btn-cancelar-edicion" style="background:none; border:1px solid var(--vanilla); color:var(--ink-soft); border-radius:999px; padding:6px 12px; font-size:12px; white-space:nowrap;">Cancelar</button>` : ""}
+      </div>
+
+      <div style="font-size:12px; color:var(--ink-soft); margin-bottom:14px; display:flex; align-items:center; gap:6px;">
+        Conectado como <strong style="color:var(--ink);">${esc(deviceIdentity)}</strong>
+        <button id="btn-cambiar-usuario" type="button" style="background:none; border:none; color:var(--beaver); font-size:12px; text-decoration:underline; padding:0;">(cambiar)</button>
+      </div>
+
+      ${renderImportPanel()}
+
+      ${banner}
+
+      <div class="card">
+        <div class="field"><label>Nombre de tarea <span class="req">*</span></label>
+          <input id="f-nombre" value="${esc(f.nombre)}" placeholder="Ej: Reel reactivación Full Connection"/></div>
+
+        <div class="row2">
+          <div><label>Cliente <span class="req">*</span></label><select id="f-cliente">${selectOptions(CLIENTES, f.cliente)}</select></div>
+          <div><label>Tipo de tarea</label><select id="f-tipo">${selectOptions(TIPOS, f.tipo)}</select></div>
+        </div>
+        <div class="row2">
+          <div><label>Solicitado por</label><select id="f-solicitadoPor">${selectOptions(SOLICITANTES, f.solicitadoPor)}</select></div>
+          <div><label>Responsable <span class="req">*</span></label><select id="f-responsable">${selectOptions(PERSONAS, f.responsable)}</select></div>
+        </div>
+        <div class="row3">
+          <div><label>Prioridad</label><select id="f-prioridad">${selectOptions(PRIORIDADES, f.prioridad)}</select></div>
+          <div><label>Fecha límite <span class="req">*</span></label><input id="f-fechaLimite" type="date" value="${esc(f.fechaLimite)}"/></div>
+          <div><label>Horas est.</label><input id="f-horas" type="number" min="0" step="0.5" value="${esc(f.horas)}" placeholder="0"/></div>
+        </div>
+        <div class="field">
+          <label>Estado del equipo</label><select id="f-estadoEquipo">${selectOptions(ESTADOS_EQUIPO, f.estadoEquipo)}</select>
+        </div>
+        <div class="field"><label>Descripción / Objetivo</label>
+          <textarea id="f-descripcion" style="min-height:70px;" placeholder="Qué se necesita y para qué">${esc(f.descripcion)}</textarea></div>
+        <div class="field"><label>Enlace / recursos (Drive, Dropbox, WeTransfer, accesos…)</label>
+          <input id="f-recursos" type="url" value="${esc(f.recursos)}" placeholder="https://drive.google.com/…"/></div>
+        <div class="field"><label>Formato de entrega</label>
+          <div style="display:flex; flex-wrap:wrap; gap:8px;">
+            ${FORMATOS.map((opt) => `
+              <label style="display:flex; align-items:center; gap:6px; font-size:13px; font-weight:500; color:var(--ink); background:var(--bg); border:1px solid var(--vanilla); border-radius:999px; padding:6px 12px;">
+                <input type="checkbox" class="f-formato-chk" value="${esc(opt)}" ${f.formato.includes(opt)?"checked":""} style="width:16px; height:16px; accent-color:var(--beaver); margin:0;"/>
+                ${esc(opt)}
+              </label>`).join("")}
+          </div>
+        </div>
+        <div class="field" style="margin-bottom:18px;"><label>Copy de la publicación (opcional)</label>
+          <textarea id="f-copy" style="min-height:70px;" placeholder="Texto ya redactado para la publicación, si aplica">${esc(f.copy)}</textarea></div>
+        <button id="btn-guardar" ${state.formStatus==="saving"?"disabled":""} style="width:100%; display:flex; align-items:center; justify-content:center; gap:8px; background:var(--ink); color:var(--bg); border:none; border-radius:12px; padding:13px 18px; font-size:14px; font-weight:600; opacity:${state.formStatus==="saving"?0.7:1};">
+          ${state.formStatus==="saving" ? `<span class="spin">${ICONS.refresh}</span> Guardando…` : `${ICONS.send} ${state.editingId ? "Actualizar tarea" : "Guardar brief"}`}
+        </button>
+      </div>
+
+      ${pendingHtml}
+    </div>`;
+}
+
+function readForm(){
+  state.form.nombre = document.getElementById("f-nombre").value;
+  state.form.cliente = document.getElementById("f-cliente").value;
+  state.form.tipo = document.getElementById("f-tipo").value;
+  state.form.solicitadoPor = document.getElementById("f-solicitadoPor").value;
+  state.form.responsable = document.getElementById("f-responsable").value;
+  state.form.prioridad = document.getElementById("f-prioridad").value;
+  state.form.estadoEquipo = document.getElementById("f-estadoEquipo").value;
+  state.form.fechaLimite = document.getElementById("f-fechaLimite").value;
+  state.form.horas = document.getElementById("f-horas").value;
+  state.form.descripcion = document.getElementById("f-descripcion").value;
+  state.form.recursos = document.getElementById("f-recursos").value;
+  state.form.formato = Array.from(document.querySelectorAll(".f-formato-chk:checked")).map((el) => el.value);
+  state.form.copy = document.getElementById("f-copy").value;
+}
+
+function startEdit(task){
+  state.editingId = task.id;
+  state.form = {
+    nombre: task.nombre || "", cliente: task.cliente || CLIENTES[0], tipo: task.tipo || TIPOS[0],
+    solicitadoPor: task.solicitadoPor || SOLICITANTES[0], responsable: task.responsable || PERSONAS[0],
+    prioridad: task.prioridad || "Media", estadoEquipo: fieldsToEstadoEquipo(task), fechaLimite: task.fechaLimite || "", horas: task.horas || "",
+    descripcion: task.descripcion || "", recursos: task.recursos || "",
+    formato: task.formato ? task.formato.split(",").map((s) => s.trim()).filter(Boolean) : [],
+    copy: task.copy || "",
+  };
+  state.tab = "brief";
+  state.formStatus = "idle";
+  render();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function cancelEdit(){
+  state.editingId = null;
+  state.form = emptyFormObject();
+  render();
+}
+
+const PRIORIDAD_ORDER = ["Baja", "Media", "Alta"];
+function prioridadColor(p){
+  if (p === "Alta") return "var(--alert)";
+  if (p === "Baja") return "var(--ok)";
+  return "#C9A227"; // Media
+}
+function prioridadLetra(p){
+  return p === "Alta" ? "A" : p === "Baja" ? "B" : "M";
+}
+
+function cyclePriority(id){
+  const t = state.tasks.find((x) => x.id === id);
+  if (!t) return;
+  const idx = PRIORIDAD_ORDER.indexOf(t.prioridad);
+  const next = PRIORIDAD_ORDER[(idx + 1) % PRIORIDAD_ORDER.length];
+  t.prioridad = next; // actualización optimista, se ve al toque
+  render();
+  try {
+    fetch(UPDATE_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id, fields: { prioridad: next, autor: deviceIdentity } }),
+    }).catch(() => {
+      state.dashError = "No se pudo guardar el cambio de prioridad, intenta de nuevo.";
+      render();
+    });
+  } catch {
+    state.dashError = "No se pudo guardar el cambio de prioridad, intenta de nuevo.";
+    render();
+  }
+}
+
+async function markAsDone(id){
+  try {
+    const controller = new AbortController();
+    const t = setTimeout(() => controller.abort(), 10000);
+    const resp = await fetch(UPDATE_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id, fields: { estado: "Listo", autor: deviceIdentity } }),
+      signal: controller.signal,
+    });
+    clearTimeout(t);
+    if (!resp.ok) {
+      const errData = await resp.json().catch(() => ({}));
+      throw new Error(JSON.stringify(errData));
+    }
+  } catch (e) {
+    state.dashError = "No se pudo marcar la tarea como Lista. " + (e && e.message ? e.message : "Verifica tu conexión.");
+    render();
+    return;
+  }
+  loadTasks(true);
+}
+
+async function reopenTask(id){
+  try {
+    const controller = new AbortController();
+    const t = setTimeout(() => controller.abort(), 10000);
+    const resp = await fetch(UPDATE_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id, fields: { estado: "Sin empezar", autor: deviceIdentity } }),
+      signal: controller.signal,
+    });
+    clearTimeout(t);
+    if (!resp.ok) {
+      const errData = await resp.json().catch(() => ({}));
+      throw new Error(JSON.stringify(errData));
+    }
+  } catch (e) {
+    state.dashError = "No se pudo reabrir la tarea. " + (e && e.message ? e.message : "Verifica tu conexión.");
+    render();
+    return;
+  }
+  loadTasks(true);
+}
+
+async function handleGuardar(){
+  readForm();
+  const f = state.form;
+  if (!f.nombre.trim() || !f.cliente || !f.responsable || !f.fechaLimite){
+    state.formStatus = "error";
+    state.formError = "Completa al menos Nombre, Cliente, Responsable y Fecha límite.";
+    render();
+    setTimeout(() => { state.formStatus = "idle"; render(); }, 4000);
+    return;
+  }
+
+  state.formStatus = "saving";
+  render();
+
+  const emptyForm = emptyFormObject();
+
+  if (state.editingId){
+    // ---- Modo edición: PATCH a la tarea existente ----
+    try {
+      const controller = new AbortController();
+      const t = setTimeout(() => controller.abort(), 10000);
+      const resp = await fetch(UPDATE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: state.editingId, fields: { ...f, formato: f.formato.join(", "), ...estadoEquipoToFields(f.estadoEquipo), autor: deviceIdentity } }),
+        signal: controller.signal,
+      });
+      clearTimeout(t);
+      if (!resp.ok) throw new Error("no-ok");
+      state.editingId = null;
+      state.form = emptyForm;
+      state.formStatus = "success";
+      loadTasks(true);
+    } catch {
+      state.formStatus = "error";
+      state.formError = "No se pudo actualizar. Verifica tu conexión e intenta de nuevo.";
+    }
+    render();
+    setTimeout(() => { state.formStatus = "idle"; render(); }, 3500);
+    return;
+  }
+
+  // ---- Modo creación: igual que antes ----
+  const entry = { ...f, formato: f.formato.join(", "), ...estadoEquipoToFields(f.estadoEquipo), autor: deviceIdentity, id: Date.now().toString() };
+
+  try {
+    const controller = new AbortController();
+    const t = setTimeout(() => controller.abort(), 10000);
+    const resp = await fetch(CREATE_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(entry),
+      signal: controller.signal,
+    });
+    clearTimeout(t);
+    if (!resp.ok) throw new Error("no-ok");
+    state.form = emptyForm;
+    state.formStatus = "success";
+    loadTasks(true); // refresca el dashboard en segundo plano
+  } catch {
+    savePending([...state.pending, entry]);
+    state.form = emptyForm;
+    state.formStatus = "queued";
+  }
+  render();
+  setTimeout(() => { state.formStatus = "idle"; render(); }, 3500);
+}
+
+async function handleCopyPending(){
+  const text = state.pending.map((p, i) =>
+    `${i+1}. ${p.nombre}\n   Cliente: ${p.cliente} | Tipo: ${p.tipo} | Responsable: ${p.responsable} | Solicitado por: ${p.solicitadoPor}\n   Prioridad: ${p.prioridad} | Fecha límite: ${p.fechaLimite} | Horas: ${p.horas||0}\n   Descripción: ${p.descripcion||"-"}\n   Enlace/recursos: ${p.recursos||"-"}\n   Formato de entrega: ${p.formato||"-"}\n   Copy de publicación: ${p.copy||"-"}`
+  ).join("\n\n");
+  const message = `Crea estas tareas en mi base "Tareas Equipo — Brief y Seguimiento" de Notion:\n\n${text}`;
+  try {
+    await navigator.clipboard.writeText(message);
+    state.copyLabel = "¡Copiado!"; state.manualText = null;
+    render();
+    setTimeout(() => { state.copyLabel = "Copiar todo para Claude"; render(); }, 3000);
+  } catch {
+    state.manualText = message;
+    render();
+  }
+}
+
+// ==================== RENDER: DASHBOARD ====================
+const FIN_ENDPOINT = "/.netlify/functions/finanzas";
+const FIN_SAVE_ENDPOINT = "/.netlify/functions/finanzas-save";
+
+async function loadFinanzas(force){
+  if (!force && state.finLastFetchAt && (Date.now() - state.finLastFetchAt) < CACHE_MS){
+    render();
+    return;
+  }
+  state.finLoading = true; state.finError = null; render();
+  try {
+    const controller = new AbortController();
+    const t = setTimeout(() => controller.abort(), 25000);
+    const resp = await fetch(FIN_ENDPOINT, { signal: controller.signal });
+    clearTimeout(t);
+    if (!resp.ok) throw new Error("no-ok");
+    state.fin = await resp.json();
+    state.finLastFetchAt = Date.now();
+  } catch {
+    state.finError = "No se pudo conectar con Notion. Mostrando lo último cargado.";
+  } finally {
+    state.finLoading = false;
+    render();
+  }
+}
+
+async function saveFin(kind, action, id, fields){
+  try {
+    const controller = new AbortController();
+    const t = setTimeout(() => controller.abort(), 10000);
+    const resp = await fetch(FIN_SAVE_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ kind, action, id, fields }),
+      signal: controller.signal,
+    });
+    clearTimeout(t);
+    if (!resp.ok) {
+      const errData = await resp.json().catch(() => ({}));
+      throw new Error(JSON.stringify(errData));
+    }
+    return true;
+  } catch (e) {
+    state.finError = "No se pudo guardar. " + (e && e.message && e.message !== "{}" ? e.message : "Verifica tu conexión.");
+    render();
+    return false;
+  }
+}
+
+async function loadTasks(force){
+  if (!force && state.lastFetchAt && (Date.now() - state.lastFetchAt) < CACHE_MS){
+    render();
+    return;
+  }
+  state.dashLoading = true; state.dashError = null; render();
+  try {
+    const controller = new AbortController();
+    const t = setTimeout(() => controller.abort(), 25000);
+    const resp = await fetch(TASKS_ENDPOINT, { signal: controller.signal });
+    clearTimeout(t);
+    if (!resp.ok) {
+      const errData = await resp.json().catch(() => ({}));
+      throw new Error(JSON.stringify(errData));
+    }
+    state.tasks = await resp.json();
+    state.lastSync = new Date();
+    state.lastFetchAt = Date.now();
+    await autoActivateDueSoonTasks();
+  } catch (e) {
+    state.dashError = "No se pudo conectar con Notion. " + (e && e.message && e.message !== "{}" ? e.message : "Mostrando lo último cargado.");
+  } finally {
+    state.dashLoading = false;
+    render();
+  }
+}
+
+// Activa solas las tareas "Programada" cuya fecha límite ya está a 3 días o menos
+// (o vencida). No relanza loadTasks recursivamente: solo actualiza el estado en
+// memoria para que se refleje al instante sin otra vuelta a Notion.
+async function autoActivateDueSoonTasks(){
+  const dueSoon = state.tasks.filter((t) => t.visibilidad === "Programada" && t.estado !== "Listo" && t.fechaLimite && daysUntil(t.fechaLimite) <= 3);
+  if (dueSoon.length === 0) return;
+  for (const t of dueSoon){
+    try {
+      const controller = new AbortController();
+      const tm = setTimeout(() => controller.abort(), 8000);
+      await fetch(UPDATE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: t.id, fields: { visibilidad: "Activa" } }),
+        signal: controller.signal,
+      });
+      clearTimeout(tm);
+      t.visibilidad = "Activa";
+    } catch {
+      // si falla, se queda "Programada" y se reintentará en la próxima carga
+    }
+  }
+}
+
+async function activateNow(id){
+  try {
+    const controller = new AbortController();
+    const t = setTimeout(() => controller.abort(), 10000);
+    const resp = await fetch(UPDATE_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id, fields: { visibilidad: "Activa", autor: deviceIdentity } }),
+      signal: controller.signal,
+    });
+    clearTimeout(t);
+    if (!resp.ok) {
+      const errData = await resp.json().catch(() => ({}));
+      throw new Error(JSON.stringify(errData));
+    }
+  } catch (e) {
+    state.dashError = "No se pudo activar la tarea. " + (e && e.message ? e.message : "Verifica tu conexión.");
+    render();
+    return;
+  }
+  loadTasks(true);
+}
+
+async function deleteTaskConfirm(id, nombre){
+  if (!window.confirm(`¿Seguro que quieres eliminar "${nombre}"?\n\nQueda archivada en la papelera de Notion por ~30 días, se puede recuperar ahí si te equivocas.`)) return;
+  try {
+    const controller = new AbortController();
+    const t = setTimeout(() => controller.abort(), 10000);
+    const resp = await fetch(DELETE_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id }),
+      signal: controller.signal,
+    });
+    clearTimeout(t);
+    if (!resp.ok) {
+      const errData = await resp.json().catch(() => ({}));
+      throw new Error(JSON.stringify(errData));
+    }
+  } catch (e) {
+    state.dashError = "No se pudo eliminar la tarea. " + (e && e.message ? e.message : "Verifica tu conexión.");
+    render();
+    return;
+  }
+  loadTasks(true);
+}
+
+function buildReportText(tasks, titulo){
+  const fecha = new Date().toLocaleDateString("es-VE", { day:"numeric", month:"long", year:"numeric" });
+  const lineas = tasks.map((t,i) => `${i+1}. ${t.nombre}\n   Cliente: ${t.cliente} | Responsable: ${t.responsable} | Estado: ${fieldsToEstadoEquipo(t)}\n   Prioridad: ${t.prioridad} | Vence: ${t.fechaLimite||"sin fecha"}`);
+  return `${titulo} — ${fecha}\n(${tasks.length} tareas)\n\n${lineas.join("\n\n")}`;
+}
+
+async function copyReport(tasks, titulo){
+  const text = buildReportText(tasks, titulo);
+  try {
+    await navigator.clipboard.writeText(text);
+    state.dashError = null;
+    alert("Reporte copiado — pégalo donde lo necesites.");
+  } catch {
+    alert(text); // respaldo simple si el portapapeles falla: se muestra en una alerta seleccionable
+  }
+}
+
+function openPrintView(tasks, titulo){
+  const fecha = new Date().toLocaleDateString("es-VE", { day:"numeric", month:"long", year:"numeric" });
+  const porCliente = {};
+  tasks.forEach((t) => { (porCliente[t.cliente] = porCliente[t.cliente] || []).push(t); });
+  const clientes = Object.keys(porCliente).sort();
+
+  const bodyHtml = clientes.map((c) => `
+    <h2>${esc(c)} <span class="count">(${porCliente[c].length})</span></h2>
+    <table>
+      <thead><tr><th>Tarea</th><th>Responsable</th><th>Estado</th><th>Prioridad</th><th>Vence</th></tr></thead>
+      <tbody>
+        ${porCliente[c].slice().sort((a,b)=>daysUntil(a.fechaLimite)-daysUntil(b.fechaLimite)).map((t) => `
+          <tr>
+            <td>${esc(t.nombre)}</td>
+            <td>${esc(t.responsable)}</td>
+            <td>${esc(fieldsToEstadoEquipo(t))}</td>
+            <td>${esc(t.prioridad)}</td>
+            <td>${esc(t.fechaLimite||"sin fecha")}</td>
+          </tr>`).join("")}
+      </tbody>
+    </table>
+  `).join("");
+
+  const doc = `<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+    <title>${esc(titulo)}</title>
+    <style>
+      body{ font-family:Georgia,serif; color:#3A2E27; padding:32px; max-width:800px; margin:0 auto; }
+      h1{ font-size:22px; margin-bottom:2px; }
+      .sub{ font-family:Arial,sans-serif; font-size:12px; color:#7A6A5F; margin-bottom:24px; }
+      h2{ font-family:Arial,sans-serif; font-size:15px; border-bottom:2px solid #A37E6D; padding-bottom:4px; margin-top:26px; }
+      .count{ color:#7A6A5F; font-weight:normal; font-size:12px; }
+      table{ width:100%; border-collapse:collapse; font-family:Arial,sans-serif; font-size:12px; margin-top:8px; }
+      th{ text-align:left; padding:6px 8px; border-bottom:1px solid #ccc; color:#7A6A5F; text-transform:uppercase; font-size:10px; }
+      td{ padding:6px 8px; border-bottom:1px solid #eee; }
+      @media print{ body{ padding:0; } }
+    </style></head>
+    <body>
+      <h1>${esc(titulo)}</h1>
+      <div class="sub">Merlyz Castellanos · Branding Estratégico — ${esc(fecha)} — ${tasks.length} tareas</div>
+      ${bodyHtml || "<p>No hay tareas con este filtro.</p>"}
+      <script>window.onload = () => window.print();<\/script>
+    </body></html>`;
+
+  const w = window.open("", "_blank");
+  if (!w){ alert("El navegador bloqueó la ventana emergente. Habilita ventanas emergentes para este sitio e inténtalo de nuevo."); return; }
+  w.document.open(); w.document.write(doc); w.document.close();
+}
+
+function renderExportBar(tasks, titulo, filename){
+  return `
+    <div style="display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap;">
+      <button id="btn-copy-report" type="button" style="display:flex; align-items:center; gap:6px; background:var(--card); border:none; border-radius:999px; padding:8px 14px; font-size:12px; font-weight:600; color:var(--ink);">${ICONS.clipboard} Copiar reporte</button>
+      <button id="btn-print-view" type="button" style="display:flex; align-items:center; gap:6px; background:var(--card); border:none; border-radius:999px; padding:8px 14px; font-size:12px; font-weight:600; color:var(--ink);">🖨 Vista de impresión / PDF</button>
+    </div>`;
+}
+function buildGrid(){
+  const g = {};
+  RESPONSABLES.forEach((r) => { g[r] = {}; BUCKETS.forEach((b) => (g[r][b] = { hours:0, items:[] })); });
+  filteredActiveTasks().forEach((t) => {
+    if (!RESPONSABLES.includes(t.responsable) || !t.fechaLimite) return;
+    const b = bucketFor(t.fechaLimite);
+    g[t.responsable][b].hours += Number(t.horas)||0;
+    g[t.responsable][b].items.push(t);
+  });
+  return g;
+}
+
+function renderDashboard(){
+  const now = new Date();
+  const activeTasks = filteredActiveTasks();
+  const programadasTasks = filteredProgramadasTasks();
+  const grid = buildGrid();
+  const byClientMap = {};
+  activeTasks.forEach((t) => { byClientMap[t.cliente] = (byClientMap[t.cliente]||0)+1; });
+  const byClient = Object.entries(byClientMap).sort((a,b)=>b[1]-a[1]);
+  const maxClientCount = Math.max(1, ...byClient.map(([,c])=>c));
+
+  const urgentTasks = activeTasks
+    .filter((t) => t.prioridad==="Alta" || bucketFor(t.fechaLimite)==="Vencida" || bucketFor(t.fechaLimite)==="Hoy / Mañana")
+    .sort((a,b)=>daysUntil(a.fechaLimite)-daysUntil(b.fechaLimite));
+
+  const personasAMostrar = state.filterResponsable === "Todos" ? PERSONAS : [state.filterResponsable];
+
+  const heatRows = RESPONSABLES.map((r) => {
+    const cells = BUCKETS.map((b) => {
+      const cell = grid[r][b];
+      const isSel = state.selectedCell && state.selectedCell.r===r && state.selectedCell.b===b;
+      const textColor = cell.hours>6 ? "var(--bg)" : "var(--ink)";
+      const subColor = cell.hours>6 ? "var(--bg)" : "var(--ink-soft)";
+      return `<button class="heat-cell ${isSel?"selected":""}" data-cell-r="${esc(r)}" data-cell-b="${esc(b)}" style="background:${heatColor(cell.hours)}; cursor:${cell.items.length?"pointer":"default"};">
+        <span class="fraunces" style="font-size:18px; font-weight:600; color:${textColor};">${cell.items.length}</span>
+        <span style="font-size:10px; color:${subColor};">${cell.hours}h</span>
+      </button>`;
+    }).join("");
+    return `<div style="font-size:14px; font-weight:600; display:flex; align-items:center;">${esc(r)}</div>${cells}`;
+  }).join("");
+
+  let selectedDetail = "";
+  if (state.selectedCell){
+    const { r, b } = state.selectedCell;
+    const items = grid[r][b].items;
+    selectedDetail = `
+      <div style="margin-top:16px; background:var(--card); border-radius:12px; padding:14px;">
+        <div style="font-size:12px; font-weight:700; color:var(--beaver); margin-bottom:6px;">${esc(r)} · ${esc(b)}</div>
+        ${items.map((t,i) => `<div style="font-size:13px; padding:4px 0; ${i>0?"border-top:1px solid rgba(58,46,39,0.1);":""}">${esc(t.nombre)} <span style="color:var(--ink-soft);">· ${esc(t.cliente)} · ${t.horas}h</span></div>`).join("")}
+      </div>`;
+  }
+
+  return `
+    <div style="max-width:960px; margin:0 auto; padding:24px 20px 60px;">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:20px;">
+        <div>
+          <div style="font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--beaver); font-weight:600;">Merlyz Castellanos · Branding Estratégico</div>
+          <h1 class="fraunces" style="font-size:30px; font-weight:600; margin:4px 0 0;">Mapa de carga del equipo</h1>
+        </div>
+        <button id="btn-refresh-dash" ${state.dashLoading?"disabled":""} style="display:flex; align-items:center; gap:8px; background:var(--ink); color:var(--bg); border:none; border-radius:999px; padding:10px 18px; font-size:13px; font-weight:600; opacity:${state.dashLoading?0.6:1};">
+          <span class="${state.dashLoading?"spin":""}">${ICONS.refresh}</span> ${state.dashLoading?"Actualizando…":"Actualizar"}
+        </button>
+      </div>
+
+      ${state.dashError ? `<div class="banner error">${ICONS.alert} ${esc(state.dashError)}</div>` : ""}
+
+      ${renderFilterBar()}
+
+      <div class="card">
+        <h2 class="fraunces" style="font-size:18px; font-weight:600; margin:0 0 4px;">Carga por responsable y urgencia</h2>
+        <p style="font-size:13px; color:var(--ink-soft); margin:0 0 16px;">Horas estimadas activas · toca una celda para ver las tareas</p>
+        <div class="scroll-x" style="overflow-x:auto;">
+          <div style="display:grid; grid-template-columns:100px repeat(${BUCKETS.length}, 1fr); gap:8px; min-width:560px;">
+            <div></div>
+            ${BUCKETS.map((b) => `<div style="font-size:11px; font-weight:600; color:var(--ink-soft); text-align:center; text-transform:uppercase; letter-spacing:0.4px;">${esc(b)}</div>`).join("")}
+            ${heatRows}
+          </div>
+        </div>
+        ${selectedDetail}
+      </div>
+
+      <div class="card">
+        <h2 class="fraunces" style="font-size:18px; font-weight:600; margin:0 0 4px;">Calendario de carga mensual</h2>
+        <p style="font-size:13px; color:var(--ink-soft); margin:0 0 16px;">Actividades por día en ${esc(now.toLocaleDateString("es-VE", { month:"long", year:"numeric" }))} · toca/pasa el mouse por un día para ver el detalle</p>
+        ${personasAMostrar.map((p) => renderMonthlyHeatmap(p, now.getFullYear(), now.getMonth())).join("")}
+      </div>
+
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:12px;">
+          <h2 class="fraunces" style="font-size:18px; font-weight:600; margin:0;">Lista de tareas activas (${activeTasks.length})</h2>
+          <label style="display:flex; align-items:center; gap:6px; font-size:12px; font-weight:500; color:var(--ink-soft); cursor:pointer;">
+            <input type="checkbox" id="f-only-with-date" ${state.filterOnlyWithDate?"checked":""} style="width:15px; height:15px; accent-color:var(--beaver);"/> Solo con fecha límite
+          </label>
+        </div>
+        ${renderExportBar(activeTasks, "Reporte de tareas activas", "tareas-activas.csv")}
+        <p style="font-size:11.5px; color:var(--ink-soft); margin:0 0 10px;">Toca el cuadrito de color junto a cada tarea para subir/bajar su prioridad (B → M → A).</p>
+        ${activeTasks.length===0 ? `<p style="font-size:13px; color:var(--ink-soft);">No hay tareas activas con este filtro.</p>` : BUCKETS.map((bucketName) => {
+          const items = activeTasks.filter((t) => bucketFor(t.fechaLimite) === bucketName).sort((a,b)=>daysUntil(a.fechaLimite)-daysUntil(b.fechaLimite));
+          if (items.length === 0) return "";
+          const collapsed = !!state.activeGroupCollapse[bucketName];
+          return `
+            <div style="border-top:1px solid var(--card); padding-top:10px; margin-top:10px;">
+              <button data-bucket-toggle="${esc(bucketName)}" type="button" style="background:none; border:none; padding:0; width:100%; display:flex; justify-content:space-between; align-items:center; font-size:14px; font-weight:700; color:var(--ink);">
+                <span>${esc(bucketName)} (${items.length})</span><span style="font-size:12px; color:var(--ink-soft);">${collapsed?"▼ mostrar":"▲ ocultar"}</span>
+              </button>
+              ${collapsed ? "" : items.map((t,i) => `
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px; padding:10px 0; ${i>0?"border-top:1px solid var(--card);":""}">
+                  <button data-priority-id="${esc(t.id)}" title="Tocar para cambiar prioridad (ahora: ${esc(t.prioridad)})" style="background:${prioridadColor(t.prioridad)}; color:#fff; border:none; border-radius:8px; width:26px; height:26px; flex-shrink:0; font-size:11px; font-weight:800; margin-top:2px;">${prioridadLetra(t.prioridad)}</button>
+                  <div style="min-width:0; flex:1;">
+                    <div style="font-size:13.5px; font-weight:600;">${esc(t.nombre)} ${t.estado==="En curso"?`<span style="font-size:10px; font-weight:700; color:var(--beaver);">· EN CURSO</span>`:""}</div>
+                    <div style="font-size:12px; color:var(--ink-soft);">${esc(t.cliente)} · ${esc(t.responsable)} · vence ${esc(t.fechaLimite||"sin fecha")}</div>
+                    <div style="font-size:11px; color:var(--ink-soft);">${esc(t.tipo||"-")} · pidió: ${esc(t.solicitadoPor||"-")}</div>
+                  </div>
+                  <div style="display:flex; gap:6px; flex-shrink:0;">
+                    <button data-edit-id="${esc(t.id)}" title="Editar" style="background:var(--card); border:none; border-radius:8px; padding:6px 10px; font-size:11.5px; font-weight:600; color:var(--ink);">Editar</button>
+                    <button data-done-id="${esc(t.id)}" title="Marcar como Lista" style="background:var(--ok); border:none; border-radius:8px; padding:6px 10px; font-size:11.5px; font-weight:600; color:#fff;">${ICONS.check}</button>
+                    <button data-delete-id="${esc(t.id)}" data-delete-nombre="${esc(t.nombre)}" title="Eliminar" style="background:none; border:none; padding:6px; color:var(--alert);">${ICONS.trash}</button>
+                  </div>
+                </div>`).join("")}
+            </div>`;
+        }).join("")}
+      </div>
+
+      <div class="card">
+        <button id="btn-toggle-programadas" type="button" style="background:none; border:none; padding:0; font-size:18px; font-family:'Fraunces',serif; font-weight:600; color:var(--ink); display:flex; align-items:center; justify-content:space-between; width:100%; text-align:left;">
+          <span>🕒 Programadas (${programadasTasks.length})</span><span style="font-size:14px;">${state.showProgramadas ? "▲" : "▼"}</span>
+        </button>
+        <p style="font-size:12.5px; color:var(--ink-soft); margin:6px 0 0;">Tareas importadas para más adelante — se activan solas cuando falten 3 días o menos para su fecha límite.</p>
+        ${state.showProgramadas ? `
+          <div style="margin-top:12px;">
+            ${programadasTasks.length===0 ? `<p style="font-size:13px; color:var(--ink-soft); margin:0;">No hay tareas programadas con este filtro.</p>` : programadasTasks
+              .slice().sort((a,b)=>daysUntil(a.fechaLimite)-daysUntil(b.fechaLimite))
+              .map((t,i) => `
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px; padding:10px 0; ${i>0?"border-top:1px solid var(--card);":""}">
+                <div style="min-width:0;">
+                  <div style="font-size:13.5px; font-weight:600;">${esc(t.nombre)}</div>
+                  <div style="font-size:12px; color:var(--ink-soft);">${esc(t.cliente)} · ${esc(t.responsable)} · vence ${esc(t.fechaLimite||"sin fecha")}</div>
+                </div>
+                <div style="display:flex; gap:6px; flex-shrink:0;">
+                  <button data-activate-id="${esc(t.id)}" title="Activar ahora" style="background:var(--beaver); border:none; border-radius:8px; padding:6px 10px; font-size:11.5px; font-weight:600; color:#fff;">Activar</button>
+                  <button data-delete-id="${esc(t.id)}" data-delete-nombre="${esc(t.nombre)}" title="Eliminar" style="background:none; border:none; padding:6px; color:var(--alert);">${ICONS.trash}</button>
+                </div>
+              </div>`).join("")}
+          </div>
+        ` : ""}
+      </div>
+
+      <div class="card">
+        <h2 class="fraunces" style="font-size:18px; font-weight:600; margin:0 0 12px;">Tareas activas por cliente</h2>
+        ${byClient.length===0 ? `<p style="font-size:13px; color:var(--ink-soft);">Sin datos aún.</p>` : byClient.map(([cliente,count]) => `
+          <div style="margin-bottom:10px;">
+            <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px;"><span>${esc(cliente)}</span><span style="color:var(--ink-soft);">${count}</span></div>
+            <div style="background:var(--card); border-radius:999px; height:8px;"><div style="width:${(count/maxClientCount)*100}%; background:var(--beaver); height:8px; border-radius:999px;"></div></div>
+          </div>`).join("")}
+      </div>
+
+      <div class="card">
+        <h2 class="fraunces" style="font-size:18px; font-weight:600; margin:0 0 12px; display:flex; align-items:center; gap:8px;">${ICONS.flame} Prioridad alta / urgentes</h2>
+        ${urgentTasks.length===0 ? `<div style="font-size:13px; color:var(--ink-soft); display:flex; align-items:center; gap:6px;">${ICONS.check} Sin urgencias pendientes.</div>` :
+          urgentTasks.map((t,i) => {
+            const d = daysUntil(t.fechaLimite);
+            const color = d<0||d<=1 ? "var(--alert)" : "var(--beaver)";
+            const label = d<0 ? `${Math.abs(d)}d vencida` : d===0 ? "Hoy" : d===1 ? "Mañana" : `${d}d`;
+            return `<div style="display:flex; justify-content:space-between; align-items:center; padding:8px 0; ${i>0?"border-top:1px solid rgba(58,46,39,0.08);":""}">
+              <div><div style="font-size:13px; font-weight:600;">${esc(t.nombre)}</div><div style="font-size:12px; color:var(--ink-soft);">${esc(t.responsable)} · ${esc(t.cliente)}</div></div>
+              <div style="display:flex; align-items:center; gap:4px; font-size:12px; font-weight:700; color:${color};">${ICONS.clock}${label}</div>
+            </div>`;
+          }).join("")}
+      </div>
+
+      ${state.lastSync ? `<div style="font-size:11px; color:var(--ink-soft); text-align:center; margin-top:20px;">Última actualización: ${state.lastSync.toLocaleTimeString("es-VE")}</div>` : ""}
+    </div>`;
+}
+
+// ==================== RENDER: COMPLETADAS ====================
+// ==================== RENDER: COBRANZAS (finanzas) ====================
+function fmtMonto(n){
+  return "$" + Number(n || 0).toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+function parseCuotas(cobranza){
+  try {
+    const arr = JSON.parse(cobranza.cuotasJson || "[]");
+    return Array.isArray(arr) ? arr : [];
+  } catch { return []; }
+}
+
+function nextInvoiceNumber(){
+  const year = new Date().getFullYear();
+  let max = 0;
+  state.fin.cobranzas.forEach((c) => {
+    const m = (c.numeroInvoice || "").match(/MC-(\d{4})-(\d+)/);
+    if (m && parseInt(m[1], 10) === year) max = Math.max(max, parseInt(m[2], 10));
+  });
+  return `MC-${year}-${String(max + 1).padStart(3, "0")}`;
+}
+
+function sumaPorcentajes(cuotas){
+  return cuotas.reduce((s, c) => s + (Number(c.porcentaje) || 0), 0);
+}
+
+// ---- Generador: Invoice de servicio (imprimible / PDF) ----
+function generarInvoice(cobranza){
+  const cuotas = parseCuotas(cobranza);
+  const numero = cobranza.numeroInvoice || nextInvoiceNumber();
+  const fechaDoc = new Date().toLocaleDateString("es-VE", { day:"2-digit", month:"long", year:"numeric" });
+  const mesServicio = new Date().toLocaleDateString("es-VE", { month:"long" });
+
+  const cuotasHtml = cuotas.map((c) => `
+    <div class="split">
+      <div class="split-label">${esc(c.numero === 1 ? "PRIMER PAGO" : c.numero === cuotas.length ? "SALDO PENDIENTE" : `CUOTA ${c.numero}`)} · ${esc(c.porcentaje)}%</div>
+      <div class="split-amount">$${Number(c.monto||0).toLocaleString("es-VE")}</div>
+      <div class="split-status ${c.estado==="Recibido"?"ok":""}">● ${esc(c.estado||"Pendiente")}${c.vencimiento?` · vence ${esc(c.vencimiento)}`:""}</div>
+    </div>`).join("");
+
+  const doc = buildFinDocShell({
+    kicker: "INVOICE MENSUAL",
+    invoiceLabel: `INVOICE N.º ${esc(numero)}`,
+    fechaDoc,
+    titulo: `Invoice de <em>servicio</em> · ${esc(mesServicio)}.`,
+    intro: `Documento que formaliza el cobro del servicio de ${esc(cobranza.descripcionServicio || "gestión estratégica")} correspondiente al mes de ${esc(mesServicio)} ${new Date().getFullYear()}, en la relación profesional entre Merlyz Castellanos / Branding Estratégico y ${esc(cobranza.cliente)}.`,
+    facturadoA: cobranza.cliente,
+    facturadoASub: `${esc(cobranza.descripcionServicio || "Servicio acordado")} · Presupuesto ${fmtMonto(cobranza.monto)}`,
+    detalleTitulo: cobranza.descripcionServicio || "Servicio acordado",
+    detalleDesc: cobranza.observacion || "Servicio correspondiente al presupuesto acordado.",
+    detalleMonto: fmtMonto(cobranza.monto),
+    totalLabel: `TOTAL DEL PRESUPUESTO · ${esc(mesServicio.toUpperCase())} ${new Date().getFullYear()}`,
+    totalMonto: Math.round(cobranza.monto),
+    splitsHtml: cuotasHtml,
+    metodoPago: cobranza.metodoPago || "Zelle",
+    cuentaPago: cobranza.cuentaPago || "",
+    nota: cuotas.length ? `El primer pago (${esc(cuotas[0].porcentaje)}%) ${cuotas[0].estado==="Recibido"?"fue recibido":"vence"} el ${esc(cuotas[0].vencimiento||"-")}. ${cuotas.length>1?`El saldo restante deberá cancelarse antes del ${esc(cuotas[cuotas.length-1].vencimiento||"-")}.`:""}` : "",
+  });
+  openDocWindow(doc);
+}
+
+// ---- Generador: Nota de Pago recibido (imprimible / PDF) ----
+function generarNotaPago(cobranza){
+  const cuotas = parseCuotas(cobranza);
+  const recibidas = cuotas.filter((c) => c.estado === "Recibido").sort((a,b) => (a.fechaPago||"").localeCompare(b.fechaPago||""));
+  if (recibidas.length === 0){
+    alert("Esta cobranza todavía no tiene ninguna cuota marcada como 'Recibido'. Marca al menos un pago en el plan de cuotas antes de generar la Nota de Pago.");
+    return;
+  }
+  const ultima = recibidas[recibidas.length-1];
+  const numero = cobranza.numeroInvoice || nextInvoiceNumber();
+  const fechaDoc = new Date().toLocaleDateString("es-VE", { day:"2-digit", month:"long", year:"numeric" });
+  const totalRecibido = recibidas.reduce((s,c) => s + Number(c.monto||0), 0);
+  const totalmenteSaldado = recibidas.length === cuotas.length;
+
+  const abonosHtml = recibidas.map((c,i) => `
+    <div class="split">
+      <div class="split-label">ABONO ${i+1} · ${esc(c.fechaPago||"-")}</div>
+      <div class="split-amount">$${Number(c.monto||0).toLocaleString("es-VE")}</div>
+      <div class="split-status ok">● Recibido</div>
+    </div>`).join("");
+
+  const doc = buildFinDocShell({
+    kicker: "NOTA DE PAGO",
+    invoiceLabel: `CONSTANCIA · NOTA DE PAGO N.º ${esc(numero)}`,
+    fechaDoc,
+    titulo: `Nota de <em>pago recibido</em>.`,
+    intro: `Documento que deja constancia de la recepción de${totalmenteSaldado?" pago que salda por completo":"l abono de"} el Invoice N.º ${esc(numero)}, correspondiente a la relación profesional entre Merlyz Castellanos / Branding Estratégico y ${esc(cobranza.cliente)}.`,
+    facturadoA: cobranza.cliente,
+    facturadoASub: `${esc(cobranza.descripcionServicio || "Servicio acordado")} · ${totalmenteSaldado?"Saldo liquidado":"Abono parcial"}`,
+    detalleTitulo: cobranza.descripcionServicio || "Servicio acordado",
+    detalleDesc: `${totalmenteSaldado?"Saldo total":"Abono"} correspondiente al presupuesto acordado del servicio.`,
+    detalleMonto: fmtMonto(totalRecibido),
+    totalLabel: totalmenteSaldado ? "SALDO TOTAL SALDADO" : "TOTAL RECIBIDO A LA FECHA",
+    totalMonto: Math.round(totalRecibido),
+    splitsHtml: abonosHtml,
+    comprobante: {
+      fecha: ultima.fechaPago || "-",
+      monto: fmtMonto(ultima.monto),
+      metodo: (cobranza.metodoPago || "Zelle") + (ultima.destinatario ? ` · ${esc(ultima.destinatario)}` : ""),
+      destinatario: ultima.destinatario || "-",
+    },
+    nota: `Con este abono de $${Number(ultima.monto||0).toLocaleString("es-VE")} ${totalmenteSaldado?`se completa el saldo del Invoice N.º ${esc(numero)}. El servicio queda al día y sin montos pendientes a la fecha de esta constancia.`:`se registra contra el Invoice N.º ${esc(numero)}. Restan ${cuotas.length-recibidas.length} cuota(s) pendiente(s).`}`,
+  });
+  openDocWindow(doc);
+}
+
+// ---- Plantilla compartida (mismo estilo de marca para Invoice y Nota de Pago) ----
+function buildFinDocShell(d){
+  return `<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>${d.invoiceLabel}</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap');
+    *{box-sizing:border-box;}
+    body{ font-family:'Inter',sans-serif; background:#F5EBE0; color:#3A2E27; margin:0; padding:40px 32px; }
+    .wrap{ max-width:660px; margin:0 auto; position:relative; }
+    .top{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:36px; }
+    .brand{ font-family:'Fraunces',serif; font-style:italic; font-size:26px; font-weight:600; }
+    .brand small{ display:block; font-family:'Inter',sans-serif; font-style:normal; font-size:10px; letter-spacing:2px; color:#7A6A5F; font-weight:600; }
+    .meta{ text-align:right; font-size:11px; letter-spacing:1px; color:#7A6A5F; font-weight:600; }
+    .meta .sub{ font-weight:400; margin-top:2px; }
+    .kicker{ font-size:11px; letter-spacing:2px; color:#A37E6D; font-weight:700; margin:24px 0 8px; border-top:2px solid #A37E6D; padding-top:8px; width:fit-content; }
+    h1{ font-family:'Fraunces',serif; font-size:34px; font-weight:700; margin:0 0 14px; }
+    h1 em{ font-style:italic; font-weight:500; }
+    .intro{ font-size:13px; color:#4a3d34; line-height:1.6; max-width:520px; margin-bottom:26px; }
+    .facturado{ background:#A37E6D; color:#fff; border-radius:14px; padding:22px 24px; margin-bottom:28px; }
+    .facturado .lbl{ font-size:10px; letter-spacing:2px; font-weight:700; opacity:.85; margin-bottom:8px; }
+    .facturado .nombre{ font-family:'Fraunces',serif; font-style:italic; font-size:24px; margin-bottom:6px; }
+    .facturado .sub{ font-size:12px; opacity:.9; }
+    .section-lbl{ font-size:10px; letter-spacing:2px; color:#7A6A5F; font-weight:700; margin-bottom:10px; }
+    .detalle{ display:flex; justify-content:space-between; align-items:flex-start; gap:16px; padding-bottom:18px; border-bottom:1px solid #d8c9ba; margin-bottom:20px; }
+    .detalle-t{ font-size:14px; font-weight:700; margin-bottom:4px; }
+    .detalle-d{ font-size:12px; color:#7A6A5F; line-height:1.5; }
+    .detalle-m{ font-family:'Fraunces',serif; font-size:20px; font-weight:600; white-space:nowrap; }
+    .total-bar{ background:#EFE1D3; border-radius:12px; padding:16px 20px; display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; }
+    .total-bar .lbl{ font-size:10px; letter-spacing:1.5px; color:#7A6A5F; font-weight:700; }
+    .total-bar .amt{ font-family:'Fraunces',serif; font-size:30px; font-weight:700; }
+    .total-bar .amt sup{ font-size:16px; }
+    .splits{ display:grid; grid-template-columns:repeat(${d.splitsHtml && d.splitsHtml.split('class="split"').length-1 >= 2 ? 2 : 1}, 1fr); gap:12px; margin-bottom:24px; }
+    .split{ background:#EFE1D3; border-radius:10px; padding:14px 16px; }
+    .split-label{ font-size:9.5px; letter-spacing:1px; color:#7A6A5F; font-weight:700; margin-bottom:6px; }
+    .split-amount{ font-family:'Fraunces',serif; font-style:italic; font-size:22px; margin-bottom:6px; }
+    .split-status{ font-size:11px; color:#A37E6D; font-weight:600; }
+    .split-status.ok{ color:#5C7A5A; }
+    table.datos{ width:100%; font-size:12.5px; margin-bottom:20px; border-collapse:collapse; }
+    table.datos td{ padding:8px 0; border-bottom:1px solid #e4d6c8; }
+    table.datos td:last-child{ text-align:right; font-weight:700; }
+    .nota{ border-left:3px solid #A37E6D; background:#EFE1D3; padding:14px 16px; font-size:12px; font-style:italic; color:#4a3d34; line-height:1.6; border-radius:0 8px 8px 0; margin-bottom:26px; }
+    footer{ display:flex; justify-content:space-between; align-items:flex-end; border-top:1px solid #d8c9ba; padding-top:18px; }
+    footer .lbl{ font-size:9.5px; letter-spacing:1.5px; color:#7A6A5F; font-weight:700; margin-bottom:4px; }
+    footer .name{ font-family:'Fraunces',serif; font-style:italic; font-size:15px; }
+    footer .contact{ font-size:11px; color:#7A6A5F; line-height:1.5; }
+    footer .tagline{ text-align:right; font-family:'Fraunces',serif; font-style:italic; font-size:13px; }
+    footer .tagline small{ display:block; font-family:'Inter',sans-serif; font-style:normal; font-size:10px; color:#7A6A5F; }
+    @media print{ body{ background:#fff; padding:0; } }
+  </style></head>
+  <body><div class="wrap">
+    <div class="top">
+      <div class="brand">Merlyz<small>CASTELLANOS</small></div>
+      <div class="meta">${d.invoiceLabel}<div class="sub">${d.fechaDoc}</div></div>
+    </div>
+    <div class="kicker">${d.kicker}</div>
+    <h1>${d.titulo}</h1>
+    <div class="intro">${d.intro}</div>
+    <div class="facturado">
+      <div class="lbl">FACTURADO A</div>
+      <div class="nombre">${esc(d.facturadoA)}</div>
+      <div class="sub">${d.facturadoASub}</div>
+    </div>
+    <div class="section-lbl">DETALLE DEL SERVICIO</div>
+    <div class="detalle">
+      <div><div class="detalle-t">${esc(d.detalleTitulo)}</div><div class="detalle-d">${esc(d.detalleDesc)}</div></div>
+      <div class="detalle-m">${d.detalleMonto}</div>
+    </div>
+    <div class="total-bar"><span class="lbl">${d.totalLabel}</span><span class="amt"><sup>$</sup>${d.totalMonto}</span></div>
+    <div class="splits">${d.splitsHtml}</div>
+    <table class="datos">
+      <tr><td>Método de pago</td><td>${esc(d.metodoPago || "")}</td></tr>
+      ${d.cuentaPago ? `<tr><td>Cuenta</td><td>${esc(d.cuentaPago)}</td></tr>` : ""}
+      ${d.comprobante ? `<tr><td>Fecha del pago</td><td>${esc(d.comprobante.fecha)}</td></tr><tr><td>Monto</td><td>${d.comprobante.monto}</td></tr><tr><td>Destinatario</td><td>${esc(d.comprobante.destinatario)}</td></tr>` : ""}
+    </table>
+    ${d.nota ? `<div class="nota">${d.nota}</div>` : ""}
+    <footer>
+      <div>
+        <div class="lbl">PRESTADOR DEL SERVICIO</div>
+        <div class="name">Merlyz Castellanos</div>
+        <div class="contact">Branding Estratégico · @merlyzcastellanosa<br/>merlyzgabrielacastellanos@gmail.com · +58 412-6496821</div>
+      </div>
+      <div class="tagline">Creatividad con retorno.<small>Diseño que se siente, se mide.</small></div>
+    </footer>
+  </div>
+  <script>window.onload = () => window.print();<\/script>
+  </body></html>`;
+}
+
+function openDocWindow(doc){
+  const w = window.open("", "_blank");
+  if (!w){ alert("El navegador bloqueó la ventana emergente. Habilita ventanas emergentes para este sitio e inténtalo de nuevo."); return; }
+  w.document.open(); w.document.write(doc); w.document.close();
+}
+
+function renderFinanzas(){
+  const cobranzas = state.fin.cobranzas.slice().sort((a,b) => (a.fechaCobro||"").localeCompare(b.fechaCobro||""));
+  const gastos = state.fin.gastos.slice().sort((a,b) => (b.fecha||"").localeCompare(a.fecha||""));
+
+  const totalCobrado = cobranzas.filter((c) => c.fechaPago).reduce((s,c) => s + Number(c.monto||0), 0);
+  const totalPendiente = cobranzas.filter((c) => !c.fechaPago).reduce((s,c) => s + Number(c.monto||0), 0);
+  const totalGastos = gastos.reduce((s,g) => s + Number(g.monto||0), 0);
+  const balance = totalCobrado - totalGastos;
+
+  return `
+    <div style="max-width:640px; margin:0 auto; padding:24px 20px 60px;">
+      <div style="margin-bottom:20px;">
+        <div style="font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--beaver); font-weight:600;">Merlyz Castellanos · Branding Estratégico</div>
+        <h1 class="fraunces" style="font-size:28px; font-weight:600; margin:4px 0 0;">Cobranzas</h1>
+      </div>
+
+      ${state.finError ? `<div class="banner error">${ICONS.alert} ${esc(state.finError)}</div>` : ""}
+
+      <div class="card">
+        <h2 class="fraunces" style="font-size:17px; font-weight:600; margin:0 0 12px;">Balance General</h2>
+        <div style="display:flex; justify-content:space-between; font-size:13.5px; padding:6px 0; border-top:1px solid var(--card);"><span>Cobrado</span><strong style="color:var(--ok);">${fmtMonto(totalCobrado)}</strong></div>
+        <div style="display:flex; justify-content:space-between; font-size:13.5px; padding:6px 0; border-top:1px solid var(--card);"><span>Pendiente por cobrar</span><strong>${fmtMonto(totalPendiente)}</strong></div>
+        <div style="display:flex; justify-content:space-between; font-size:13.5px; padding:6px 0; border-top:1px solid var(--card);"><span>Gastos</span><strong style="color:var(--alert);">${fmtMonto(totalGastos)}</strong></div>
+        <div style="display:flex; justify-content:space-between; font-size:15px; padding:10px 0 0; border-top:2px solid var(--ink); margin-top:4px;"><span style="font-weight:700;">Balance</span><strong style="color:${balance>=0?"var(--ok)":"var(--alert)"};">${fmtMonto(balance)}</strong></div>
+      </div>
+
+      <div class="card">
+        <div style="font-size:12.5px; font-weight:600; margin-bottom:6px;">📌 Reglas de fechas de cobro (referencia)</div>
+        <div style="font-size:12px; color:var(--ink-soft); line-height:1.7;">
+          Vence el 10 → cobrar el 8<br/>
+          Vence 30-31 → cobrar el 28<br/>
+          Vence 15 y último → cobrar el 12 y el 28
+        </div>
+      </div>
+
+      <div style="display:flex; gap:6px; background:var(--card); border-radius:999px; padding:4px; margin-bottom:16px;">
+        <button data-fin-subtab="cobranzas" type="button" style="flex:1; padding:10px 0; font-size:13px; font-weight:600; border:none; border-radius:999px; background:${state.finSubTab==="cobranzas"?"var(--ink)":"transparent"}; color:${state.finSubTab==="cobranzas"?"var(--bg)":"var(--ink-soft)"};">Cobranzas (${cobranzas.length})</button>
+        <button data-fin-subtab="gastos" type="button" style="flex:1; padding:10px 0; font-size:13px; font-weight:600; border:none; border-radius:999px; background:${state.finSubTab==="gastos"?"var(--ink)":"transparent"}; color:${state.finSubTab==="gastos"?"var(--bg)":"var(--ink-soft)"};">Gastos (${gastos.length})</button>
+      </div>
+
+      ${state.finSubTab === "cobranzas" ? renderCobranzasList(cobranzas) : renderGastosList(gastos)}
+    </div>`;
+}
+
+function readPlanDraftFromDom(){
+  state.finPlanDraft.forEach((cuota, i) => {
+    const p = document.querySelector(`.plan-porcentaje[data-idx="${i}"]`);
+    const v = document.querySelector(`.plan-vencimiento[data-idx="${i}"]`);
+    const e = document.querySelector(`.plan-estado[data-idx="${i}"]`);
+    const fp = document.querySelector(`.plan-fechapago[data-idx="${i}"]`);
+    const dest = document.querySelector(`.plan-destinatario[data-idx="${i}"]`);
+    if (!p) return;
+    cuota.porcentaje = Number(p.value) || 0;
+    cuota.vencimiento = v ? v.value : cuota.vencimiento;
+    cuota.estado = e ? e.value : cuota.estado;
+    cuota.fechaPago = fp ? fp.value : cuota.fechaPago;
+    cuota.destinatario = dest ? dest.value : cuota.destinatario;
+  });
+}
+
+function renderPlanEditor(c){
+  const draft = state.finPlanDraft;
+  const sumaPct = sumaPorcentajes(draft);
+  return `
+    <div style="background:var(--card); border-radius:12px; padding:14px; margin-top:10px;">
+      <div class="row2" style="margin-bottom:8px;">
+        <div><label>N° Invoice</label><input id="plan-numeroInvoice" value="${esc(c.numeroInvoice || nextInvoiceNumber())}"/></div>
+        <div><label>Método de pago</label><input id="plan-metodoPago" value="${esc(c.metodoPago || "Zelle")}"/></div>
+      </div>
+      <div class="field"><label>Descripción del servicio</label><input id="plan-descripcionServicio" value="${esc(c.descripcionServicio || "")}" placeholder="Ej: Gestión estratégica y ejecución a medida"/></div>
+      <div class="field"><label>Cuenta de pago</label><input id="plan-cuentaPago" value="${esc(c.cuentaPago || "")}" placeholder="Email / número de cuenta"/></div>
+
+      <div style="font-size:11.5px; font-weight:700; margin:12px 0 6px;">Cuotas (suma actual: ${sumaPct}% ${sumaPct!==100?"⚠️ no da 100%":"✓"})</div>
+      ${draft.map((cuota, i) => `
+        <div style="background:var(--surface); border-radius:10px; padding:10px; margin-bottom:8px;">
+          <div style="display:flex; gap:8px; margin-bottom:6px;">
+            <div style="flex:1;"><label style="font-size:11px;">%</label><input class="plan-porcentaje" data-idx="${i}" type="number" min="0" max="100" value="${esc(cuota.porcentaje)}"/></div>
+            <div style="flex:1;"><label style="font-size:11px;">Vencimiento</label><input class="plan-vencimiento" data-idx="${i}" type="date" value="${esc(cuota.vencimiento||"")}"/></div>
+            <div style="flex:1;"><label style="font-size:11px;">Estado</label><select class="plan-estado" data-idx="${i}"><option ${cuota.estado!=="Recibido"?"selected":""}>Pendiente</option><option ${cuota.estado==="Recibido"?"selected":""}>Recibido</option></select></div>
+          </div>
+          ${cuota.estado === "Recibido" ? `
+            <div style="display:flex; gap:8px;">
+              <div style="flex:1;"><label style="font-size:11px;">Fecha de pago</label><input class="plan-fechapago" data-idx="${i}" type="date" value="${esc(cuota.fechaPago||"")}"/></div>
+              <div style="flex:1;"><label style="font-size:11px;">Destinatario</label><input class="plan-destinatario" data-idx="${i}" value="${esc(cuota.destinatario||"")}" placeholder="Quién lo recibió"/></div>
+            </div>
+          ` : ""}
+          <button data-quitar-cuota="${i}" style="background:none; border:none; color:var(--alert); font-size:11px; padding:4px 0; margin-top:4px;">Quitar esta cuota</button>
+        </div>
+      `).join("")}
+      <div style="display:flex; gap:8px;">
+        <button id="btn-agregar-cuota" type="button" style="flex:1; background:var(--beaver); color:#fff; border:none; border-radius:10px; padding:9px; font-size:12px; font-weight:700;">+ Agregar cuota</button>
+        <button id="btn-guardar-plan" data-cobranza-id="${esc(c.id)}" data-monto-total="${esc(c.monto)}" type="button" style="flex:1; background:var(--ink); color:var(--bg); border:none; border-radius:10px; padding:9px; font-size:12px; font-weight:700;">Guardar plan</button>
+      </div>
+    </div>`;
+}
+
+function renderCobranzasList(cobranzas){
+  return `
+    <div class="card">
+      <button id="btn-toggle-fin-form" type="button" style="width:100%; background:var(--beaver); color:#fff; border:none; border-radius:12px; padding:11px; font-size:13.5px; font-weight:700; margin-bottom:${state.finShowForm?"14px":"0"};">${state.finShowForm ? "Cancelar" : "+ Nueva cobranza"}</button>
+      ${state.finShowForm ? `
+        <div class="field"><label>Cliente <span class="req">*</span></label><input id="fc-cliente" placeholder="Nombre del cliente"/></div>
+        <div class="row2">
+          <div><label>Fecha de cobro</label><input id="fc-fechaCobro" type="date"/></div>
+          <div><label>Monto</label><input id="fc-monto" type="number" min="0" step="0.01" placeholder="0.00"/></div>
+        </div>
+        <div class="field"><label>Observación</label><input id="fc-observacion" placeholder="Opcional"/></div>
+        <button id="btn-guardar-cobranza" type="button" style="width:100%; background:var(--ink); color:var(--bg); border:none; border-radius:12px; padding:11px; font-size:13.5px; font-weight:700;">Guardar cobranza</button>
+      ` : ""}
+    </div>
+
+    <div class="card">
+      ${cobranzas.length === 0 ? `<p style="font-size:13px; color:var(--ink-soft); margin:0;">Sin cobranzas registradas.</p>` : cobranzas.map((c,i) => `
+        <div style="padding:10px 0; ${i>0?"border-top:1px solid var(--card);":""}">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+            <div style="min-width:0;">
+              <div style="font-size:13.5px; font-weight:600;">${esc(c.cliente)} <span style="font-size:11px; font-weight:700; color:${c.fechaPago?"var(--ok)":"var(--beaver)"};">· ${c.fechaPago?"PAGADO":"PENDIENTE"}</span></div>
+              <div style="font-size:12px; color:var(--ink-soft);">Vence ${esc(c.fechaCobro||"sin fecha")} · ${fmtMonto(c.monto)}${c.fechaPago?` · pagó ${esc(c.fechaPago)} (${esc(c.formaPago||"-")})`:""}</div>
+              ${c.observacion ? `<div style="font-size:11.5px; color:var(--ink-soft); font-style:italic;">${esc(c.observacion)}</div>` : ""}
+            </div>
+            <div style="display:flex; gap:6px; flex-shrink:0;">
+              ${!c.fechaPago ? `<button data-marcar-pagado="${esc(c.id)}" style="background:var(--ok); border:none; border-radius:8px; padding:6px 10px; font-size:11px; font-weight:600; color:#fff;">Marcar pagado</button>` : ""}
+              <button data-fin-delete-id="${esc(c.id)}" data-fin-delete-kind="cobranza" data-fin-delete-nombre="${esc(c.cliente)}" style="background:none; border:none; padding:6px; color:var(--alert);">${ICONS.trash}</button>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:8px;">
+            <button data-toggle-plan="${esc(c.id)}" style="background:var(--card); border:none; border-radius:999px; padding:6px 12px; font-size:11px; font-weight:600; color:var(--ink);">📄 Plan de pago${c.numeroInvoice?` (${esc(c.numeroInvoice)})`:""}</button>
+            <button data-generar-invoice="${esc(c.id)}" style="background:var(--card); border:none; border-radius:999px; padding:6px 12px; font-size:11px; font-weight:600; color:var(--ink);">🧾 Invoice</button>
+            <button data-generar-nota="${esc(c.id)}" style="background:var(--card); border:none; border-radius:999px; padding:6px 12px; font-size:11px; font-weight:600; color:var(--ink);">🧾 Nota de pago</button>
+          </div>
+
+          ${state.finPlanEditId === c.id ? renderPlanEditor(c) : ""}
+          ${state.finPagandoId === c.id ? `
+            <div style="background:var(--card); border-radius:10px; padding:10px; margin-top:8px;">
+              <div class="row2" style="margin-bottom:8px;">
+                <div><label>Fecha de pago</label><input id="fp-fecha" type="date" value="${new Date().toISOString().slice(0,10)}"/></div>
+                <div><label>Forma de pago</label><select id="fp-forma"><option>Transferencia</option><option>Efectivo</option><option>Zelle</option><option>Pago móvil</option><option>Otro</option></select></div>
+              </div>
+              <button data-confirmar-pago="${esc(c.id)}" style="width:100%; background:var(--ok); color:#fff; border:none; border-radius:10px; padding:9px; font-size:12.5px; font-weight:700;">Confirmar pago</button>
+            </div>
+          ` : ""}
+        </div>
+      `).join("")}
+    </div>`;
+}
+
+function renderGastosList(gastos){
+  return `
+    <div class="card">
+      <button id="btn-toggle-fin-form" type="button" style="width:100%; background:var(--beaver); color:#fff; border:none; border-radius:12px; padding:11px; font-size:13.5px; font-weight:700; margin-bottom:${state.finShowForm?"14px":"0"};">${state.finShowForm ? "Cancelar" : "+ Nuevo gasto"}</button>
+      ${state.finShowForm ? `
+        <div class="field"><label>Descripción <span class="req">*</span></label><input id="fg-descripcion" placeholder="Ej: Sueldo Melissa junio"/></div>
+        <div class="row2">
+          <div><label>Fecha</label><input id="fg-fecha" type="date" value="${new Date().toISOString().slice(0,10)}"/></div>
+          <div><label>Monto</label><input id="fg-monto" type="number" min="0" step="0.01" placeholder="0.00"/></div>
+        </div>
+        <div class="field"><label>Tipo</label><select id="fg-tipo"><option>Fijo</option><option>Variable</option></select></div>
+        <button id="btn-guardar-gasto" type="button" style="width:100%; background:var(--ink); color:var(--bg); border:none; border-radius:12px; padding:11px; font-size:13.5px; font-weight:700;">Guardar gasto</button>
+      ` : ""}
+    </div>
+
+    <div class="card">
+      ${gastos.length === 0 ? `<p style="font-size:13px; color:var(--ink-soft); margin:0;">Sin gastos registrados.</p>` : gastos.map((g,i) => `
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px; padding:10px 0; ${i>0?"border-top:1px solid var(--card);":""}">
+          <div style="min-width:0;">
+            <div style="font-size:13.5px; font-weight:600;">${esc(g.descripcion)} <span style="font-size:11px; font-weight:700; color:var(--ink-soft);">· ${esc(g.tipo||"-")}</span></div>
+            <div style="font-size:12px; color:var(--ink-soft);">${esc(g.fecha||"sin fecha")} · ${fmtMonto(g.monto)}</div>
+          </div>
+          <button data-fin-delete-id="${esc(g.id)}" data-fin-delete-kind="gasto" data-fin-delete-nombre="${esc(g.descripcion)}" style="background:none; border:none; padding:6px; color:var(--alert); flex-shrink:0;">${ICONS.trash}</button>
+        </div>
+      `).join("")}
+    </div>`;
+}
+
+function renderCompletadas(){
+  const completed = filteredCompletedTasks().slice().sort((a,b) => (b.fechaLimite||"").localeCompare(a.fechaLimite||""));
+  return `
+    <div style="max-width:640px; margin:0 auto; padding:24px 20px 60px;">
+      <div style="margin-bottom:22px;">
+        <div style="font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--beaver); font-weight:600;">Merlyz Castellanos · Branding Estratégico</div>
+        <h1 class="fraunces" style="font-size:28px; font-weight:600; margin:4px 0 0;">Tareas listas</h1>
+        <p style="font-size:13px; color:var(--ink-soft); margin:4px 0 0;">Historial de tareas marcadas como completadas</p>
+      </div>
+
+      ${renderFilterBar()}
+
+      ${state.dashError ? `<div class="banner error">${ICONS.alert} ${esc(state.dashError)}</div>` : ""}
+
+      <div class="card">
+        ${completed.length===0 ? `<p style="font-size:13px; color:var(--ink-soft); margin:0;">Aún no hay tareas completadas con este filtro.</p>` : completed.map((t,i) => `
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px; padding:10px 0; ${i>0?"border-top:1px solid var(--card);":""}">
+            <div style="min-width:0;">
+              <div style="font-size:13.5px; font-weight:600; text-decoration:line-through; color:var(--ink-soft);">${esc(t.nombre)}</div>
+              <div style="font-size:12px; color:var(--ink-soft);">${esc(t.cliente)} · ${esc(t.responsable)} · vencía ${esc(t.fechaLimite||"sin fecha")}</div>
+            </div>
+            <div style="display:flex; gap:6px; flex-shrink:0;">
+              <button data-reopen-id="${esc(t.id)}" title="Reabrir tarea" style="background:var(--card); border:none; border-radius:8px; padding:6px 10px; font-size:11.5px; font-weight:600; color:var(--ink);">Reabrir</button>
+              <button data-delete-id="${esc(t.id)}" data-delete-nombre="${esc(t.nombre)}" title="Eliminar" style="background:none; border:none; padding:6px; color:var(--alert);">${ICONS.trash}</button>
+            </div>
+          </div>`).join("")}
+      </div>
+    </div>`;
+}
+
+// ==================== MAIN RENDER + EVENTS ====================
+function renderIdentityModal(){
+  return `
+    <div style="min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px;">
+      <div class="card" style="max-width:360px; width:100%; text-align:center;">
+        <h1 class="fraunces" style="font-size:24px; font-weight:600; margin:0 0 8px;">¿Quién eres?</h1>
+        <p style="font-size:13px; color:var(--ink-soft); margin:0 0 18px;">Se guarda una sola vez en este dispositivo, para saber quién crea o edita cada tarea.</p>
+        ${PERSONAS.map((p) => `<button data-identity="${esc(p)}" type="button" style="width:100%; background:var(--ink); color:var(--bg); border:none; border-radius:12px; padding:13px; font-size:15px; font-weight:600; margin-bottom:10px;">${esc(p)}</button>`).join("")}
+      </div>
+    </div>`;
+}
+
+function updateTabTitle(){
+  const urgentCount = state.tasks.filter((t) => t.estado !== "Listo" && t.visibilidad !== "Programada" && (t.prioridad === "Alta" || bucketFor(t.fechaLimite) === "Vencida" || bucketFor(t.fechaLimite) === "Hoy / Mañana")).length;
+  document.title = urgentCount > 0 ? `(${urgentCount}) Tareas Equipo` : "Tareas Equipo";
+}
+
+function render(){
+  const root = document.getElementById("root");
+  if (!deviceIdentity){
+    root.innerHTML = renderIdentityModal();
+    document.querySelectorAll("[data-identity]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        deviceIdentity = btn.getAttribute("data-identity");
+        try { localStorage.setItem(IDENTITY_KEY, deviceIdentity); } catch {}
+        state.form.solicitadoPor = deviceIdentity;
+        render();
+      });
+    });
+    return;
+  }
+  const bodies = { brief: renderBrief, dashboard: renderDashboard, completadas: renderCompletadas, finanzas: renderFinanzas };
+  root.innerHTML = renderTabs() + (bodies[state.tab] || renderBrief)();
+  updateTabTitle();
+  attachEvents();
+}
+
+function attachFilterEvents(){
+  const fs = document.getElementById("f-filter-search");
+  if (fs) fs.addEventListener("input", () => {
+    state.filterSearch = fs.value;
+    const cursorPos = fs.selectionStart;
+    render();
+    const el = document.getElementById("f-filter-search");
+    if (el) { el.focus(); el.setSelectionRange(cursorPos, cursorPos); }
+  });
+  const fc = document.getElementById("f-filter-cliente");
+  if (fc) fc.addEventListener("change", () => { state.filterCliente = fc.value; render(); });
+  const fr = document.getElementById("f-filter-responsable");
+  if (fr) fr.addEventListener("change", () => { state.filterResponsable = fr.value; render(); });
+  const fp = document.getElementById("f-filter-prioridad");
+  if (fp) fp.addEventListener("change", () => { state.filterPrioridad = fp.value; render(); });
+}
+
+function attachEvents(){
+  document.querySelectorAll("[data-tab]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      state.tab = btn.getAttribute("data-tab");
+      render();
+      if (state.tab === "finanzas" && !state.finLastFetchAt) loadFinanzas(false);
+    });
+  });
+  document.querySelectorAll("[data-delete-id]").forEach((btn) => {
+    btn.addEventListener("click", () => deleteTaskConfirm(btn.getAttribute("data-delete-id"), btn.getAttribute("data-delete-nombre")));
+  });
+
+  if (state.tab === "brief"){
+    const guardarBtn = document.getElementById("btn-guardar");
+    if (guardarBtn) guardarBtn.addEventListener("click", handleGuardar);
+    const cambiarUsuarioBtn = document.getElementById("btn-cambiar-usuario");
+    if (cambiarUsuarioBtn) cambiarUsuarioBtn.addEventListener("click", () => {
+      deviceIdentity = null;
+      try { localStorage.removeItem(IDENTITY_KEY); } catch {}
+      render();
+    });
+    const cancelarBtn = document.getElementById("btn-cancelar-edicion");
+    if (cancelarBtn) cancelarBtn.addEventListener("click", cancelEdit);
+    const copyBtn = document.getElementById("btn-copy-pending");
+    if (copyBtn) copyBtn.addEventListener("click", handleCopyPending);
+    document.querySelectorAll("[data-remove-id]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        savePending(state.pending.filter((p) => p.id !== btn.getAttribute("data-remove-id")));
+        render();
+      });
+    });
+    const manualTextarea = document.getElementById("manual-copy-text");
+    if (manualTextarea) manualTextarea.addEventListener("click", (e) => e.target.select());
+
+    const toggleImportBtn = document.getElementById("btn-toggle-import");
+    if (toggleImportBtn) toggleImportBtn.addEventListener("click", () => { state.showImportPanel = !state.showImportPanel; render(); });
+    const analizarBtn = document.getElementById("btn-analizar-import");
+    if (analizarBtn) analizarBtn.addEventListener("click", parseImportText);
+    const crearImportadasBtn = document.getElementById("btn-crear-importadas");
+    if (crearImportadasBtn) crearImportadasBtn.addEventListener("click", handleCreateImported);
+    document.querySelectorAll(".import-row-chk").forEach((chk) => {
+      chk.addEventListener("change", () => {
+        const count = document.querySelectorAll(".import-row-chk:checked").length;
+        const btn = document.getElementById("btn-crear-importadas");
+        if (btn) btn.innerHTML = `${ICONS.check} Crear ${count} tareas seleccionadas`;
+      });
+    });
+  } else if (state.tab === "dashboard"){
+    attachFilterEvents();
+    const copyReportBtn = document.getElementById("btn-copy-report");
+    if (copyReportBtn) copyReportBtn.addEventListener("click", () => copyReport(filteredActiveTasks(), "Reporte de tareas activas"));
+    const printViewBtn = document.getElementById("btn-print-view");
+    if (printViewBtn) printViewBtn.addEventListener("click", () => openPrintView(filteredActiveTasks(), "Reporte de tareas activas"));
+    const refreshBtn = document.getElementById("btn-refresh-dash");
+    if (refreshBtn) refreshBtn.addEventListener("click", () => loadTasks(true));
+    document.querySelectorAll("[data-cell-r]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const r = btn.getAttribute("data-cell-r");
+        const b = btn.getAttribute("data-cell-b");
+        const grid = buildGrid();
+        if (!grid[r][b].items.length) return;
+        if (state.selectedCell && state.selectedCell.r===r && state.selectedCell.b===b){
+          state.selectedCell = null;
+        } else {
+          state.selectedCell = { r, b };
+        }
+        render();
+      });
+    });
+    document.querySelectorAll("[data-edit-id]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const task = state.tasks.find((t) => t.id === btn.getAttribute("data-edit-id"));
+        if (task) startEdit(task);
+      });
+    });
+    document.querySelectorAll("[data-done-id]").forEach((btn) => {
+      btn.addEventListener("click", () => markAsDone(btn.getAttribute("data-done-id")));
+    });
+    document.querySelectorAll("[data-priority-id]").forEach((btn) => {
+      btn.addEventListener("click", () => cyclePriority(btn.getAttribute("data-priority-id")));
+    });
+    const onlyWithDateChk = document.getElementById("f-only-with-date");
+    if (onlyWithDateChk) onlyWithDateChk.addEventListener("change", () => { state.filterOnlyWithDate = onlyWithDateChk.checked; render(); });
+    document.querySelectorAll("[data-bucket-toggle]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const b = btn.getAttribute("data-bucket-toggle");
+        state.activeGroupCollapse[b] = !state.activeGroupCollapse[b];
+        render();
+      });
+    });
+    const toggleProgramadasBtn = document.getElementById("btn-toggle-programadas");
+    if (toggleProgramadasBtn) toggleProgramadasBtn.addEventListener("click", () => { state.showProgramadas = !state.showProgramadas; render(); });
+    document.querySelectorAll("[data-activate-id]").forEach((btn) => {
+      btn.addEventListener("click", () => activateNow(btn.getAttribute("data-activate-id")));
+    });
+    document.querySelectorAll("[data-month-date]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const persona = btn.getAttribute("data-month-persona");
+        const date = btn.getAttribute("data-month-date");
+        if (state.selectedMonthDay && state.selectedMonthDay.persona === persona && state.selectedMonthDay.date === date){
+          state.selectedMonthDay = null;
+        } else {
+          state.selectedMonthDay = { persona, date };
+        }
+        render();
+      });
+    });
+  } else if (state.tab === "completadas"){
+    attachFilterEvents();
+    document.querySelectorAll("[data-reopen-id]").forEach((btn) => {
+      btn.addEventListener("click", () => reopenTask(btn.getAttribute("data-reopen-id")));
+    });
+  } else if (state.tab === "finanzas"){
+    document.querySelectorAll("[data-fin-subtab]").forEach((btn) => {
+      btn.addEventListener("click", () => { state.finSubTab = btn.getAttribute("data-fin-subtab"); state.finShowForm = false; render(); });
+    });
+    const toggleFormBtn = document.getElementById("btn-toggle-fin-form");
+    if (toggleFormBtn) toggleFormBtn.addEventListener("click", () => { state.finShowForm = !state.finShowForm; render(); });
+
+    const guardarCobranzaBtn = document.getElementById("btn-guardar-cobranza");
+    if (guardarCobranzaBtn) guardarCobranzaBtn.addEventListener("click", async () => {
+      const cliente = document.getElementById("fc-cliente").value.trim();
+      if (!cliente){ state.finError = "Falta el nombre del cliente."; render(); return; }
+      const fields = {
+        cliente,
+        fechaCobro: document.getElementById("fc-fechaCobro").value,
+        monto: document.getElementById("fc-monto").value,
+        observacion: document.getElementById("fc-observacion").value,
+      };
+      const ok = await saveFin("cobranza", "create", null, fields);
+      if (ok){ state.finShowForm = false; state.finError = null; loadFinanzas(true); }
+    });
+
+    const guardarGastoBtn = document.getElementById("btn-guardar-gasto");
+    if (guardarGastoBtn) guardarGastoBtn.addEventListener("click", async () => {
+      const descripcion = document.getElementById("fg-descripcion").value.trim();
+      if (!descripcion){ state.finError = "Falta la descripción del gasto."; render(); return; }
+      const fields = {
+        descripcion,
+        fecha: document.getElementById("fg-fecha").value,
+        monto: document.getElementById("fg-monto").value,
+        tipo: document.getElementById("fg-tipo").value,
+      };
+      const ok = await saveFin("gasto", "create", null, fields);
+      if (ok){ state.finShowForm = false; state.finError = null; loadFinanzas(true); }
+    });
+
+    document.querySelectorAll("[data-marcar-pagado]").forEach((btn) => {
+      btn.addEventListener("click", () => { state.finPagandoId = btn.getAttribute("data-marcar-pagado"); render(); });
+    });
+    document.querySelectorAll("[data-confirmar-pago]").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const id = btn.getAttribute("data-confirmar-pago");
+        const fields = { fechaPago: document.getElementById("fp-fecha").value, formaPago: document.getElementById("fp-forma").value };
+        const ok = await saveFin("cobranza", "update", id, fields);
+        if (ok){ state.finPagandoId = null; loadFinanzas(true); }
+      });
+    });
+    document.querySelectorAll("[data-fin-delete-id]").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const nombre = btn.getAttribute("data-fin-delete-nombre");
+        if (!window.confirm(`¿Eliminar "${nombre}"? Queda archivado en la papelera de Notion.`)) return;
+        const kind = btn.getAttribute("data-fin-delete-kind");
+        const ok = await saveFin(kind, "delete", btn.getAttribute("data-fin-delete-id"), {});
+        if (ok) loadFinanzas(true);
+      });
+    });
+
+    document.querySelectorAll("[data-toggle-plan]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const id = btn.getAttribute("data-toggle-plan");
+        if (state.finPlanEditId === id){
+          state.finPlanEditId = null;
+        } else {
+          const c = state.fin.cobranzas.find((x) => x.id === id);
+          state.finPlanDraft = parseCuotas(c);
+          state.finPlanEditId = id;
+        }
+        render();
+      });
+    });
+
+    document.querySelectorAll("[data-generar-invoice]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const c = state.fin.cobranzas.find((x) => x.id === btn.getAttribute("data-generar-invoice"));
+        if (c) generarInvoice(c);
+      });
+    });
+    document.querySelectorAll("[data-generar-nota]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const c = state.fin.cobranzas.find((x) => x.id === btn.getAttribute("data-generar-nota"));
+        if (c) generarNotaPago(c);
+      });
+    });
+
+    const agregarCuotaBtn = document.getElementById("btn-agregar-cuota");
+    if (agregarCuotaBtn) agregarCuotaBtn.addEventListener("click", () => {
+      readPlanDraftFromDom();
+      const usado = sumaPorcentajes(state.finPlanDraft);
+      state.finPlanDraft.push({ numero: state.finPlanDraft.length + 1, porcentaje: Math.max(0, 100 - usado), vencimiento: "", estado: "Pendiente", fechaPago: "", destinatario: "" });
+      render();
+    });
+    document.querySelectorAll("[data-quitar-cuota]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        readPlanDraftFromDom();
+        const idx = Number(btn.getAttribute("data-quitar-cuota"));
+        state.finPlanDraft.splice(idx, 1);
+        state.finPlanDraft.forEach((c, i) => { c.numero = i + 1; });
+        render();
+      });
+    });
+
+    const guardarPlanBtn = document.getElementById("btn-guardar-plan");
+    if (guardarPlanBtn) guardarPlanBtn.addEventListener("click", async () => {
+      readPlanDraftFromDom();
+      const id = guardarPlanBtn.getAttribute("data-cobranza-id");
+      const montoTotal = Number(guardarPlanBtn.getAttribute("data-monto-total")) || 0;
+      state.finPlanDraft.forEach((c) => { c.monto = Math.round(montoTotal * (c.porcentaje / 100) * 100) / 100; });
+
+      const fields = {
+        numeroInvoice: document.getElementById("plan-numeroInvoice").value,
+        descripcionServicio: document.getElementById("plan-descripcionServicio").value,
+        metodoPago: document.getElementById("plan-metodoPago").value,
+        cuentaPago: document.getElementById("plan-cuentaPago").value,
+        cuotasJson: JSON.stringify(state.finPlanDraft),
+      };
+      const ok = await saveFin("cobranza", "update", id, fields);
+      if (ok){ state.finPlanEditId = null; loadFinanzas(true); }
+    });
+  }
+}
+
+render();
+loadTasks();
+
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible" && deviceIdentity) loadTasks(false);
+});
+</script>
+</body>
+</html>
